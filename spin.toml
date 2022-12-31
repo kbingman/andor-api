@@ -1,0 +1,35 @@
+spin_version = "1"
+authors = ["Keith Bingman <keith@keithbingman.com>"]
+description = "Andor API"
+name = "andor-api"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+[[component]]
+id = "not-found"
+source = "not-found/target/wasm32-wasi/release/not_found.wasm"
+[component.trigger]
+route = "/..."
+[component.build]
+command = "cargo build --target wasm32-wasi --release"
+workdir = "not-found"
+
+[[component]]
+id = "people-api"
+source = "people-api/target/wasm32-wasi/release/people_api.wasm"
+[component.trigger]
+route = "/people/..."
+[component.config]
+postgres_uri = "postgres://postgres:postgres@127.0.0.1/postgres"
+[component.build]
+command = "cargo build --target wasm32-wasi --release"
+workdir = "people-api"
+
+[[component]]
+id = "episode-api"
+source = "episode-api/target/wasm32-wasi/release/episode_api.wasm"
+[component.trigger]
+route = "/episodes/..."
+[component.build]
+command = "cargo build --target wasm32-wasi --release"
+workdir = "episode-api"
