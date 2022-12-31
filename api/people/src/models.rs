@@ -13,10 +13,7 @@ impl Person {
         let id = i32::decode(&row[0])?;
         let name = String::decode(&row[1])?;
 
-        Ok(Self {
-            id,
-            name,
-        })
+        Ok(Self { id, name })
     }
 }
 
