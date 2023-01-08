@@ -1,8 +1,8 @@
-use crate::util::get_id_from_path;
 use anyhow::Result;
-use bytes::Bytes;
 use serde::de::DeserializeOwned;
 use spin_sdk::http::Request;
+
+use crate::util::{from_bytes, get_id_from_path};
 
 pub enum Api<Model> {
     Create(Model),
@@ -14,13 +14,6 @@ pub enum Api<Model> {
     NotFound,
     MethodNotAllowed,
     InternalServerError,
-}
-
-/// Converts the Request body into Bytes, then into a JSON object
-fn from_bytes<Model: DeserializeOwned + 'static>(req: &Request) -> Result<Model> {
-    let bytes: Bytes = req.body().clone().unwrap_or_default();
-    let model: Model = serde_json::from_slice(&bytes)?;
-    Ok(model)
 }
 
 /// Gets the correct API response based on the Request object

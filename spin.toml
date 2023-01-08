@@ -30,6 +30,8 @@ id = "episode-api"
 source = "target/wasm32-wasi/release/episode_api.wasm"
 [component.trigger]
 route = "/episodes/..."
+[component.config]
+postgres_uri = "postgres://postgres:postgres@127.0.0.1/postgres"
 [component.build]
 command = "cargo build --target wasm32-wasi --release"
 workdir = "api/episodes"

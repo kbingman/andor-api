@@ -12,3 +12,8 @@ CREATE TABLE episodes (
     updated_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
+CREATE TABLE people_episodes (
+    id SERIAL PRIMARY KEY,
+    episode_id int REFERENCES episodes (id) ON UPDATE CASCADE ON DELETE CASCADE,
+    person_id int REFERENCES people (id) ON UPDATE CASCADE ON DELETE CASCADE
+);
