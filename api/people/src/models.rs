@@ -24,7 +24,7 @@ pub(crate) struct Payload<T> {
 pub(crate) fn as_person(row: &Row) -> Result<Person> {
     let id = i32::decode(&row[0])?;
     let name = String::decode(&row[1])?;
-    println!("Len {}", row.len());
+
     let episode_ids: Vec<i32> = if 2 < row.len() {
         match i32::decode(&row[2]) {
             Ok(id) => vec![id],
@@ -33,7 +33,6 @@ pub(crate) fn as_person(row: &Row) -> Result<Person> {
     } else {
         Vec::new()
     };
-    println!("Episode IDs {:#?}", episode_ids);
 
     Ok(Person {
         id,

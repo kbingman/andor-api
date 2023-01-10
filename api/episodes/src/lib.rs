@@ -58,7 +58,7 @@ pub(crate) fn update(address: &str, id: i32, model: RawEpisode) -> Result<Respon
 }
 
 pub(crate) fn delete(uri: &str, id: i32) -> Result<Response> {
-    let params = &vec![ParameterValue::Int32(id)];
+    let params = [ParameterValue::Int32(id)];
     // let rowset = pg::query(uri, "SELECT * FROM episodes WHERE id=$1", &params)?;
 
     match pg::execute(uri, "DELETE FROM episodes WHERE id=$1", &params)? {

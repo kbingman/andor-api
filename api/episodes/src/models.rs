@@ -21,11 +21,9 @@ pub struct Episode {
 }
 
 pub fn as_episode(row: &Row) -> Result<Episode> {
-    println!("row {:#?}", row);
     let id = i32::decode(&row[0])?;
     let title = String::decode(&row[1])?;
 
-    println!("{:#?}", row);
 
     Ok(Episode { id, title })
 }
