@@ -4,11 +4,10 @@ use spin_sdk::{
     http_component,
 };
 
-/// A simple Spin HTTP component.
+use rest_api::handlers::not_found;
+
+/// A generic 404 handler for routes that are not implemented
 #[http_component]
-fn not_found(_req: Request) -> Result<Response> {
-    Ok(http::Response::builder()
-        .status(404)
-        .header("Content-Type", "text/plain")
-        .body(Some("Not Found".into()))?)
+fn not_found_404(_req: Request) -> Result<Response> {
+    not_found()
 }

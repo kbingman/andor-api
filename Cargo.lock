@@ -105,6 +105,7 @@ dependencies = [
  "anyhow",
  "bytes",
  "http",
+ "rest_api",
  "spin-sdk",
  "wit-bindgen-rust",
 ]

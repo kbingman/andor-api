@@ -26,7 +26,10 @@ pub fn get_api_from_request<Model: DeserializeOwned + 'static>(req: Request) -> 
                 let json: Result<Model> = from_bytes(&req);
                 match json {
                     Ok(model) => Api::Create(model),
-                    Err(_) => Api::BadRequest,
+                    Err(err) => {
+                        println!("{:#?}", err);
+                        Api::BadRequest
+                    }
                 }
             }
             http::Method::GET => match get_id_from_path(path) {

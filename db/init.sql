@@ -13,7 +13,7 @@ CREATE TABLE episodes (
 );
 
 CREATE TABLE people_episodes (
-    id SERIAL PRIMARY KEY,
     episode_id int REFERENCES episodes (id) ON UPDATE CASCADE ON DELETE CASCADE,
-    person_id int REFERENCES people (id) ON UPDATE CASCADE ON DELETE CASCADE
+    person_id int REFERENCES people (id) ON UPDATE CASCADE ON DELETE CASCADE,
+    PRIMARY KEY(episode_id, person_id)
 );

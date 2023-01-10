@@ -24,10 +24,16 @@ pub(crate) struct Payload<T> {
 pub(crate) fn as_person(row: &Row) -> Result<Person> {
     let id = i32::decode(&row[0])?;
     let name = String::decode(&row[1])?;
-    let episode_ids: Vec<i32> = match i32::decode(&row[2]) {
-        Ok(id) => vec![id],
-        _ => Vec::new(),
+    println!("Len {}", row.len());
+    let episode_ids: Vec<i32> = if 2 < row.len() {
+        match i32::decode(&row[2]) {
+            Ok(id) => vec![id],
+            _ => Vec::new(),
+        }
+    } else {
+        Vec::new()
     };
+    println!("Episode IDs {:#?}", episode_ids);
 
     Ok(Person {
         id,
@@ -56,7 +62,8 @@ pub(crate) fn aggregate_people(rowset: RowSet) -> Result<Vec<Person>> {
                 Ok(acc)
             });
 
-    let people: Vec<Person> = hashmap?.values().cloned().collect();
+    let mut people: Vec<Person> = hashmap?.values().cloned().collect();
+    people.sort_by(|a, b| a.id.cmp(&b.id));
 
     Ok(people)
 }

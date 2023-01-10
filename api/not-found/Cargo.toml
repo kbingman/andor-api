@@ -14,4 +14,4 @@ bytes = "1"
 http = "0.2"
 spin-sdk = { git = "https://github.com/fermyon/spin", tag = "v0.7.1" }
 wit-bindgen-rust = { git = "https://github.com/bytecodealliance/wit-bindgen", rev = "cb871cfa1ee460b51eb1d144b175b9aab9c50aba" }
-
+rest_api = { path = "../../crates/rest_api" }
