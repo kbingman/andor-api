@@ -50,7 +50,6 @@ pub fn get_api_from_request<Model: DeserializeOwned + 'static>(req: Request) -> 
             },
             http::Method::DELETE => {
                 let id = get_id_from_path(path);
-    
 
                 match id {
                     Ok(Some(id)) => Api::Delete(id),

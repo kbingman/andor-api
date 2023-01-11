@@ -24,6 +24,5 @@ pub fn as_episode(row: &Row) -> Result<Episode> {
     let id = i32::decode(&row[0])?;
     let title = String::decode(&row[1])?;
 
-
     Ok(Episode { id, title })
 }

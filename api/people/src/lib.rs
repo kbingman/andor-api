@@ -1,8 +1,5 @@
 use anyhow::Result;
-use queries::{
-    delete_episode_ids, delete_person, find_all_people, find_one_person, insert_person,
-    update_episode_ids, update_person,
-};
+
 use rest_api::api::{get_api_from_request, Api};
 use rest_api::handlers::{bad_request, internal_server_error, method_not_allowed, not_found, ok};
 use spin_sdk::{
@@ -12,17 +9,17 @@ use spin_sdk::{
 
 use crate::models::{aggregate_people, as_person, Payload, Person, RawPerson};
 
+mod db;
 mod models;
-mod queries;
 
 /// Creates one record
 pub(crate) fn create(uri: &str, model: RawPerson) -> Result<Response> {
-    let rowset = insert_person(uri, &model)?;
+    let rowset = db::insert_person(uri, &model)?;
 
     match rowset.rows.first() {
         Some(row) => {
             let person = &as_person(row)?;
-            let episode_ids = update_episode_ids(uri, person.id, &model.episode_ids);
+            let episode_ids = db::insert_episode_ids(uri, person.id, &model.episode_ids);
 
             ok(serde_json::to_string(&Person {
                 name: person.name.to_owned(),
@@ -36,7 +33,7 @@ pub(crate) fn create(uri: &str, model: RawPerson) -> Result<Response> {
 
 /// Finds all People in the DB
 pub(crate) fn find_all(uri: &str) -> Result<Response> {
-    let rowset = find_all_people(uri)?;
+    let rowset = db::find_all_people(uri)?;
     let results = aggregate_people(rowset);
 
     ok(serde_json::to_string(&Payload { results: &results? })?)
@@ -44,7 +41,7 @@ pub(crate) fn find_all(uri: &str) -> Result<Response> {
 
 /// Finds one record by ID
 pub(crate) fn find_one(uri: &str, id: i32) -> Result<Response> {
-    let rowset = find_one_person(uri, id)?;
+    let rowset = db::find_one_person(uri, id)?;
     let results = aggregate_people(rowset)?;
 
     match results.first() {
@@ -55,12 +52,12 @@ pub(crate) fn find_one(uri: &str, id: i32) -> Result<Response> {
 
 /// Updates one record by ID
 pub(crate) fn update(uri: &str, id: i32, model: RawPerson) -> Result<Response> {
-    let rowset = update_person(uri, id, &model)?;
+    let rowset = db::update_person(uri, id, &model)?;
 
     match rowset.rows.first() {
         Some(row) => {
             let person = &as_person(row)?;
-            let episode_ids = update_episode_ids(uri, person.id, &model.episode_ids);
+            let episode_ids = db::insert_episode_ids(uri, person.id, &model.episode_ids);
 
             ok(serde_json::to_string(&Person {
                 name: person.name.to_owned(),
@@ -73,13 +70,13 @@ pub(crate) fn update(uri: &str, id: i32, model: RawPerson) -> Result<Response> {
 }
 
 pub(crate) fn delete(uri: &str, id: i32) -> Result<Response> {
-    let rowset = find_one_person(uri, id)?;
+    let rowset = db::find_one_person(uri, id)?;
     let results = aggregate_people(rowset)?;
 
     match results.first() {
         Some(person) => {
-            delete_episode_ids(uri, person.id)?;
-            match delete_person(uri, id)? {
+            db::delete_episode_ids(uri, person.id)?;
+            match db::delete_person(uri, id)? {
                 1 => ok("success".into()), // TODO update
                 0 => bad_request(),
                 _ => internal_server_error(),

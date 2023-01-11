@@ -5,7 +5,12 @@ use crate::models::RawPerson;
 
 /// Insert person
 pub(crate) fn insert_person(uri: &str, model: &RawPerson) -> Result<RowSet> {
-    let sql = "INSERT INTO people (name) VALUES ($1) RETURNING id, name";
+    let sql = "
+        INSERT INTO 
+            people (name) 
+        VALUES ($1) 
+        RETURNING id, name
+    ";
     let params = vec![ParameterValue::Str(&model.name)];
     let rowset = pg::query(uri, sql, &params)?;
 
@@ -20,7 +25,7 @@ pub(crate) fn find_all_people(uri: &str) -> Result<RowSet> {
             people.name, 
             people_episodes.episode_id
         FROM people
-        LEFT join people_episodes on (people.id = people_episodes.person_id)
+        LEFT JOIN people_episodes on (people.id = people_episodes.person_id)
     ";
     let rowset = pg::query(uri, sql, &[])?;
 
@@ -35,7 +40,7 @@ pub(crate) fn find_one_person(uri: &str, id: i32) -> Result<RowSet> {
             people.name, 
             people_episodes.episode_id
         FROM people 
-        LEFT join people_episodes on (people.id = people_episodes.person_id)
+        LEFT JOIN people_episodes on (people.id = people_episodes.person_id)
         WHERE people.id=$1
     ";
     let rowset = pg::query(uri, sql, &[ParameterValue::Int32(id)])?;
@@ -61,7 +66,7 @@ pub(crate) fn update_person(uri: &str, id: i32, model: &RawPerson) -> Result<Row
 }
 
 /// Update episode_ids per person
-pub(crate) fn update_episode_ids(uri: &str, person_id: i32, episode_ids: &Vec<i32>) -> Vec<i32> {
+pub(crate) fn insert_episode_ids(uri: &str, person_id: i32, episode_ids: &Vec<i32>) -> Vec<i32> {
     let mut results: Vec<i32> = Vec::new();
     for episode_id in episode_ids {
         let sql = "
