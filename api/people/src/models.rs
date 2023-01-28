@@ -4,15 +4,19 @@ use spin_sdk::pg::{Decode, Row, RowSet};
 use std::collections::HashMap;
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
 pub(crate) struct Person {
     pub id: i32,
     pub name: String,
+    pub description: String,
     pub episode_ids: Vec<i32>,
 }
 
-#[derive(Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
 pub(crate) struct RawPerson {
     pub name: String,
+    pub description: String,
     pub episode_ids: Vec<i32>,
 }
 
@@ -24,8 +28,9 @@ pub(crate) struct Payload<T> {
 pub(crate) fn as_person(row: &Row) -> Result<Person> {
     let id = i32::decode(&row[0])?;
     let name = String::decode(&row[1])?;
+    let description = String::decode(&row[2])?;
 
-    let episode_ids: Vec<i32> = if 2 < row.len() {
+    let episode_ids: Vec<i32> = if 3 < row.len() {
         match i32::decode(&row[2]) {
             Ok(id) => vec![id],
             _ => Vec::new(),
@@ -37,6 +42,7 @@ pub(crate) fn as_person(row: &Row) -> Result<Person> {
     Ok(Person {
         id,
         name,
+        description,
         episode_ids,
     })
 }

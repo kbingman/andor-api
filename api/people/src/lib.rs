@@ -1,4 +1,5 @@
 use anyhow::Result;
+use std::error::Error;
 
 use rest_api::api::{get_api_from_request, Api};
 use rest_api::handlers::{bad_request, internal_server_error, method_not_allowed, not_found, ok};
@@ -14,20 +15,23 @@ mod models;
 
 /// Creates one record
 pub(crate) fn create(uri: &str, model: RawPerson) -> Result<Response> {
-    let rowset = db::insert_person(uri, &model)?;
+    match db::insert_person(uri, &model) {
+        Ok(rowset) => match rowset.rows.first() {
+            Some(row) => {
+                let person = &as_person(row)?;
+                let episode_ids = db::insert_episode_ids(uri, person.id, &model.episode_ids);
 
-    match rowset.rows.first() {
-        Some(row) => {
-            let person = &as_person(row)?;
-            let episode_ids = db::insert_episode_ids(uri, person.id, &model.episode_ids);
-
-            ok(serde_json::to_string(&Person {
-                name: person.name.to_owned(),
-                id: person.id,
-                episode_ids,
-            })?)
-        }
-        None => not_found(),
+                ok(serde_json::to_string(&Person {
+                    episode_ids,
+                    ..person.to_owned()
+                })?)
+            }
+            None => not_found(),
+        },
+        Err(err) => match err.source() {
+            Some(_) => bad_request(),
+            _ => bad_request(),
+        },
     }
 }
 
@@ -60,9 +64,8 @@ pub(crate) fn update(uri: &str, id: i32, model: RawPerson) -> Result<Response> {
             let episode_ids = db::insert_episode_ids(uri, person.id, &model.episode_ids);
 
             ok(serde_json::to_string(&Person {
-                name: person.name.to_owned(),
-                id: person.id,
                 episode_ids,
+                ..person.to_owned()
             })?)
         }
         None => not_found(),
@@ -92,7 +95,6 @@ fn people_api(req: Request) -> Result<Response> {
     let uri = spin_sdk::config::get("postgres_uri")?;
     let api: Api<RawPerson> = get_api_from_request(req)?;
 
-    // let response =
     match api {
         Api::Create(model) => create(&uri, model),
         Api::FindAll => find_all(&uri),
@@ -104,9 +106,4 @@ fn people_api(req: Request) -> Result<Response> {
         Api::BadRequest => bad_request(),
         Api::InternalServerError => internal_server_error(),
     }
-
-    // match response {
-    //     Ok(response) => Ok(response),
-    //     Err(_) => internal_server_error(),
-    // }
 }

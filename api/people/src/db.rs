@@ -1,35 +1,37 @@
 use anyhow::Result;
-use spin_sdk::pg::{self, ParameterValue, RowSet};
+use spin_sdk::pg::{self, ParameterValue, PgError, RowSet};
 
 use crate::models::RawPerson;
 
 /// Insert person
-pub(crate) fn insert_person(uri: &str, model: &RawPerson) -> Result<RowSet> {
+pub(crate) fn insert_person(uri: &str, model: &RawPerson) -> Result<RowSet, PgError> {
     let sql = "
         INSERT INTO 
-            people (name) 
-        VALUES ($1) 
-        RETURNING id, name
+            people (name, description) 
+        VALUES ($1, $2) 
+        RETURNING id, name, description
     ";
-    let params = vec![ParameterValue::Str(&model.name)];
-    let rowset = pg::query(uri, sql, &params)?;
+    let params = vec![
+        ParameterValue::Str(&model.name),
+        ParameterValue::Str(&model.description),
+    ];
 
-    Ok(rowset)
+    pg::query(uri, sql, &params)
 }
 
 /// Find all people
-pub(crate) fn find_all_people(uri: &str) -> Result<RowSet> {
+pub(crate) fn find_all_people(uri: &str) -> Result<RowSet, PgError> {
     let sql = "
         SELECT 
             people.id, 
             people.name, 
+            people.description,
             people_episodes.episode_id
         FROM people
         LEFT JOIN people_episodes on (people.id = people_episodes.person_id)
     ";
-    let rowset = pg::query(uri, sql, &[])?;
 
-    Ok(rowset)
+    pg::query(uri, sql, &[])
 }
 
 /// Find one person by ID
@@ -38,6 +40,7 @@ pub(crate) fn find_one_person(uri: &str, id: i32) -> Result<RowSet> {
         SELECT 
             people.id, 
             people.name, 
+            people.description,
             people_episodes.episode_id
         FROM people 
         LEFT JOIN people_episodes on (people.id = people_episodes.person_id)
@@ -54,12 +57,16 @@ pub(crate) fn update_person(uri: &str, id: i32, model: &RawPerson) -> Result<Row
         UPDATE 
             people 
         SET 
-            name=$2 
+            name=$2, description=$3
         WHERE id=$1 
         RETURNING  
-            people.id, people.name
+            people.id, people.name, people.description
     ";
-    let params = vec![ParameterValue::Int32(id), ParameterValue::Str(&model.name)];
+    let params = vec![
+        ParameterValue::Int32(id),
+        ParameterValue::Str(&model.name),
+        ParameterValue::Str(&model.description),
+    ];
     let rowset = pg::query(uri, sql, &params)?;
 
     Ok(rowset)
