@@ -1,61 +1,52 @@
 use anyhow::Result;
 use rest_api::api::{get_api_from_request, Api};
 use rest_api::handlers::{bad_request, internal_server_error, method_not_allowed, not_found, ok};
-use spin_sdk::pg::RowSet;
 use spin_sdk::{
     http::{Request, Response},
     http_component,
 };
 
-use db_adapter::DbAdapter;
 use crate::db::EpisodeDb;
-use crate::models::{as_episode, as_episodes, Episode};
+use crate::models::Episode;
+use db_adapter::DbAdapter;
 
 mod db;
 mod models;
 
 /// Creates a new Episode
-pub(crate) fn create<Db: DbAdapter<Episode, RowSet>>(db: Db, episode: Episode) -> Result<Response> {
-    match db.insert(&episode) {
-        Ok(rowset) => match rowset.rows.first() {
-            Some(row) => ok(serde_json::to_string(&as_episode(row)?)?),
-            None => not_found(),
-        },
-        Err(err) => {
-            println!("Error: {:#?}", err);
-            bad_request()
-        }
+pub(crate) fn create<Db: DbAdapter<Episode>>(db: Db, episode: Episode) -> Result<Response> {
+    match db.insert(&episode)? {
+        Some(episode) => ok(serde_json::to_string(&episode)?),
+        None => not_found(),
     }
 }
 
 /// Finds all Episodes
-pub(crate) fn find_all<Db: DbAdapter<Episode, RowSet>>(db: Db) -> Result<Response> {
-    let rowset = db.find_all()?;
+pub(crate) fn find_all<Db: DbAdapter<Episode>>(db: Db) -> Result<Response> {
+    let episodes = db.find_all()?;
 
-    ok(serde_json::to_string(&as_episodes(&rowset)?)?)
+    ok(serde_json::to_string(&episodes)?)
 }
 
 /// Finds one record
-pub(crate) fn find_by_id<Db: DbAdapter<Episode, RowSet>>(db: Db, id: i32) -> Result<Response> {
-    let rowset = db.find_one(id)?;
-
-    match rowset.rows.first() {
-        Some(row) => ok(serde_json::to_string(&as_episode(row)?)?),
+pub(crate) fn find_by_id<Db: DbAdapter<Episode>>(db: Db, id: i32) -> Result<Response> {
+    match db.find_one(id)? {
+        Some(episode) => ok(serde_json::to_string(&episode)?),
         None => not_found(),
     }
 }
 
 /// Updates one record by ID
-pub(crate) fn update<Db: DbAdapter<Episode, RowSet>>(db: Db, id: i32, model: Episode) -> Result<Response> {
-    let rowset = db.update(id, &model)?;
+pub(crate) fn update<Db: DbAdapter<Episode>>(db: Db, id: i32, model: Episode) -> Result<Response> {
+    let episode = db.update(id, &model)?;
 
-    match rowset.rows.first() {
-        Some(row) => ok(serde_json::to_string(&as_episode(row)?)?),
+    match episode {
+        Some(episode) => ok(serde_json::to_string(&episode)?),
         None => not_found(),
     }
 }
 
-pub(crate) fn delete<Db: DbAdapter<Episode, RowSet>>(db: Db, id: i32) -> Result<Response> {
+pub(crate) fn delete<Db: DbAdapter<Episode>>(db: Db, id: i32) -> Result<Response> {
     match db.delete(id)? {
         1 => ok("success".into()), // TODO update
         0 => bad_request(),

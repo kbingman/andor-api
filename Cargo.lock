@@ -794,6 +794,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "bytes",
+ "db_adapter",
  "http",
  "rest_api",
  "serde",

@@ -1,8 +1,8 @@
 use anyhow::Result;
-use spin_sdk::pg::{self, ParameterValue, RowSet};
+use spin_sdk::pg::{self, ParameterValue};
 
+use crate::models::{as_episode, as_episodes, Episode};
 use db_adapter::DbAdapter;
-use crate::models::Episode;
 
 pub struct EpisodeDb {
     uri: String,
@@ -14,8 +14,8 @@ impl EpisodeDb {
     }
 }
 
-impl DbAdapter<Episode, RowSet> for EpisodeDb {
-    fn insert(&self, model: &Episode) -> Result<RowSet> {
+impl DbAdapter<Episode> for EpisodeDb {
+    fn insert(&self, model: &Episode) -> Result<Option<Episode>> {
         let sql = "
             INSERT INTO 
                 episodes (title, description, episode) 
@@ -27,24 +27,33 @@ impl DbAdapter<Episode, RowSet> for EpisodeDb {
             ParameterValue::Str(&model.description),
             ParameterValue::Int32(model.episode),
         ];
-        
-        Ok(pg::query(&self.uri, sql, &params)?)
+        let rowset = pg::query(&self.uri, sql, &params)?;
+
+        Ok(match rowset.rows.first() {
+            Some(row) => Some(as_episode(row)?),
+            None => None,
+        })
     }
 
-    fn find_all(&self) -> Result<RowSet> {
+    fn find_all(&self) -> Result<Vec<Episode>> {
         let sql = "SELECT * FROM episodes";
-        
-        Ok(pg::query(&self.uri, sql, &[])?)
+        let rowset = pg::query(&self.uri, sql, &[])?;
+
+        Ok(as_episodes(&rowset)?)
     }
 
-    fn find_one(&self, id: i32) -> Result<RowSet> {
+    fn find_one(&self, id: i32) -> Result<Option<Episode>> {
         let sql = "SELECT * FROM episodes WHERE id=$1";
         let params = vec![ParameterValue::Int32(id)];
-        
-        Ok(pg::query(&self.uri, sql, &params)?)
+        let rowset = pg::query(&self.uri, sql, &params)?;
+
+        Ok(match rowset.rows.first() {
+            Some(row) => Some(as_episode(row)?),
+            None => None,
+        })
     }
 
-    fn update(&self, id: i32, model: &Episode) -> Result<RowSet> {
+    fn update(&self, id: i32, model: &Episode) -> Result<Option<Episode>> {
         let sql = "
             UPDATE 
                 episodes 
@@ -58,7 +67,12 @@ impl DbAdapter<Episode, RowSet> for EpisodeDb {
             ParameterValue::Str(&model.title),
             ParameterValue::Str(&model.description),
         ];
-        Ok(pg::query(&self.uri, sql, &params)?)
+        let rowset = pg::query(&self.uri, sql, &params)?;
+
+        Ok(match rowset.rows.first() {
+            Some(row) => Some(as_episode(row)?),
+            None => None,
+        })
     }
 
     fn delete(&self, id: i32) -> Result<u64> {
@@ -68,7 +82,7 @@ impl DbAdapter<Episode, RowSet> for EpisodeDb {
             WHERE id=$1
         ";
         let params = [ParameterValue::Int32(id)];
-        
+
         Ok(pg::execute(&self.uri, sql, &params)?)
     }
 }
