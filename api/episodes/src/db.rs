@@ -1,8 +1,7 @@
-use anyhow::Result;
+use anyhow::{Result, Context};
 use spin_sdk::pg::{self, ParameterValue};
 
-use crate::models::{as_episode, as_episodes, Episode};
-use db_adapter::DbAdapter;
+use crate::models::{as_episode, aggregate_episodes, Episode};
 
 pub struct EpisodeDb {
     uri: String,
@@ -14,7 +13,18 @@ impl EpisodeDb {
     }
 }
 
-impl DbAdapter<Episode> for EpisodeDb {
+/// A Trait for connect arbitrary databases with CRUD actions
+/// This connect a Model struct to a given DB and describes a
+/// generic interface for connecting to the DB
+pub trait DbAdapter {
+    fn insert(&self, model: &Episode) -> Result<Option<Episode>>;
+    fn find_all(&self) -> Result<Vec<Episode>>;
+    fn find_one(&self, id: i32) -> Result<Option<Episode>>;
+    fn update(&self, id: i32, model: &Episode) -> Result<Option<Episode>>;
+    fn delete(&self, id: i32) -> Result<u64>;
+}
+
+impl DbAdapter for EpisodeDb {
     fn insert(&self, model: &Episode) -> Result<Option<Episode>> {
         let sql = "
             INSERT INTO 
@@ -36,20 +46,40 @@ impl DbAdapter<Episode> for EpisodeDb {
     }
 
     fn find_all(&self) -> Result<Vec<Episode>> {
-        let sql = "SELECT * FROM episodes";
+        let sql = "
+            SELECT 
+                episodes.id, 
+                episodes.title, 
+                episodes.description,
+                episodes.episode,
+                people_episodes.person_id
+            FROM episodes
+            LEFT JOIN people_episodes on (episodes.id = people_episodes.episode_id)
+        ";
         let rowset = pg::query(&self.uri, sql, &[])?;
 
-        Ok(as_episodes(&rowset)?)
+        Ok(aggregate_episodes(rowset)?)
     }
 
     fn find_one(&self, id: i32) -> Result<Option<Episode>> {
-        let sql = "SELECT * FROM episodes WHERE id=$1";
+        let sql = "
+            SELECT 
+                episodes.id, 
+                episodes.title, 
+                episodes.description,
+                episodes.episode,
+                people_episodes.person_id
+            FROM episodes
+            LEFT JOIN people_episodes on (episodes.id = people_episodes.episode_id)
+            WHERE id=$1
+        ";
         let params = vec![ParameterValue::Int32(id)];
         let rowset = pg::query(&self.uri, sql, &params)?;
+        let results = aggregate_episodes(rowset)?;
 
-        Ok(match rowset.rows.first() {
-            Some(row) => Some(as_episode(row)?),
-            None => None,
+        Ok(match results.first() {
+            Some(episode) => Some(episode.to_owned()),
+            _ => None,
         })
     }
 
@@ -75,14 +105,21 @@ impl DbAdapter<Episode> for EpisodeDb {
         })
     }
 
-    fn delete(&self, id: i32) -> Result<u64> {
-        let sql = "
-            DELETE FROM 
-                episodes 
-            WHERE id=$1
-        ";
-        let params = [ParameterValue::Int32(id)];
+    /// Deletes the primary record and the associated join
+    /// table rows. 
+    fn delete(&self, id: i32) -> Result<u64> {        
+        let result = pg::execute(
+            &self.uri,
+            "DELETE FROM episodes WHERE id=$1",
+            &[ParameterValue::Int32(id)],
+        ).context("Error removing episodes.")?;
+        
+        pg::execute(
+            &self.uri,
+            "DELETE FROM people_episodes WHERE episode_id=$1",
+            &[ParameterValue::Int32(id)],
+        ).context("Error removing join table data for episodes and people")?;
 
-        Ok(pg::execute(&self.uri, sql, &params)?)
+        Ok(result)
     }
 }

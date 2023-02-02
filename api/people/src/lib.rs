@@ -7,9 +7,8 @@ use spin_sdk::{
     http_component,
 };
 
-use crate::db::PeopleDb;
-use crate::models::{Payload, Person};
-use db_adapter::DbAdapter;
+use crate::db::{DbAdapter, PeopleDb};
+use crate::models::Person;
 
 mod db;
 mod models;
@@ -26,7 +25,7 @@ pub(crate) fn create<Db: DbAdapter<Person>>(db: Db, model: Person) -> Result<Res
 pub(crate) fn find_all<Db: DbAdapter<Person>>(db: Db) -> Result<Response> {
     let results = db.find_all()?;
 
-    ok(serde_json::to_string(&Payload { results: &results })?)
+    ok(serde_json::to_string(&results)?)
 }
 
 /// Finds one record by ID

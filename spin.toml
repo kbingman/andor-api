@@ -9,16 +9,27 @@ version = "0.1.0"
 id = "not-found"
 source = "target/wasm32-wasi/release/not_found.wasm"
 [component.trigger]
-route = "/..."
+route = "/api/..."
 [component.build]
 command = "cargo build --target wasm32-wasi --release"
 workdir = "api/not-found"
 
 [[component]]
+id = "andor-vite"
+source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.1/spin_static_fs.wasm", digest = "sha256:650376c33a0756b1a52cad7ca670f1126391b79050df0321407da9c741d32375" }
+files = [{ source = "ui/vite/dist/", destination = "/" }]
+exclude_files = ["**/node_modules"]
+[component.trigger]
+route = "/..."
+[component.build]
+command = "npm run build"
+workdir = "ui/vite"
+
+[[component]]
 id = "people-api"
 source = "target/wasm32-wasi/release/people_api.wasm"
 [component.trigger]
-route = "/people/..."
+route = "/api/people/..."
 [component.config]
 postgres_uri = "postgres://postgres:postgres@127.0.0.1/postgres"
 [component.build]
@@ -29,9 +40,10 @@ workdir = "api/people"
 id = "episode-api"
 source = "target/wasm32-wasi/release/episode_api.wasm"
 [component.trigger]
-route = "/episodes/..."
+route = "/api/episodes/..."
 [component.config]
 postgres_uri = "postgres://postgres:postgres@127.0.0.1/postgres"
 [component.build]
 command = "cargo build --target wasm32-wasi --release"
 workdir = "api/episodes"
+

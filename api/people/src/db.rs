@@ -2,7 +2,17 @@ use anyhow::Result;
 use spin_sdk::pg::{self, ParameterValue};
 
 use crate::models::{aggregate_people, as_person, Person};
-use db_adapter::DbAdapter;
+
+/// A Trait for connect arbitrary databases with CRUD actions
+/// This connect a Model struct to a given DB and describes a
+/// generic interface for connecting to the DB
+pub trait DbAdapter<Model> {
+    fn insert(&self, model: &Model) -> Result<Option<Model>>;
+    fn find_all(&self) -> Result<Vec<Model>>;
+    fn find_one(&self, id: i32) -> Result<Option<Model>>;
+    fn update(&self, id: i32, model: &Model) -> Result<Option<Model>>;
+    fn delete(&self, id: i32) -> Result<u64>;
+}
 
 pub(crate) struct PeopleDb {
     uri: String,
@@ -43,7 +53,8 @@ impl DbAdapter<Person> for PeopleDb {
     }
 
     fn find_all(&self) -> Result<Vec<Person>> {
-        let sql = "
+        // let clause = "WHERE people.id in ($1, $2)";
+        let sql = format!("
             SELECT 
                 people.id, 
                 people.name, 
@@ -51,8 +62,13 @@ impl DbAdapter<Person> for PeopleDb {
                 people_episodes.episode_id
             FROM people
             LEFT JOIN people_episodes on (people.id = people_episodes.person_id)
-        ";
-        let rowset = pg::query(&self.uri, sql, &[])?;
+            {}
+        ", "");
+        // let params = vec![ParameterValue]
+        let rowset = pg::query(&self.uri, &sql, &[
+            // ParameterValue::Int32(1),
+            // ParameterValue::Int32(4)
+        ])?;
 
         Ok(aggregate_people(rowset)?)
     }
@@ -68,12 +84,11 @@ impl DbAdapter<Person> for PeopleDb {
             LEFT JOIN people_episodes on (people.id = people_episodes.person_id)
             WHERE people.id=$1
         ";
-
         let rowset = pg::query(&self.uri, sql, &[ParameterValue::Int32(id)])?;
         let results = aggregate_people(rowset)?;
 
         Ok(match results.first() {
-            Some(person) => Some(person.clone()),
+            Some(person) => Some(person.to_owned()),
             _ => None,
         })
     }
@@ -116,6 +131,14 @@ impl DbAdapter<Person> for PeopleDb {
             "DELETE FROM people WHERE id=$1",
             &[ParameterValue::Int32(id)],
         )?;
+        println!("result {:#?}", result);
+        
+        let result2 = pg::execute(
+            &self.uri,
+            "DELETE FROM people_episodes WHERE person_id=$1",
+            &[ParameterValue::Int32(id)],
+        )?;
+        println!("result2 {:#?}", result2);
 
         Ok(result)
     }

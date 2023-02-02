@@ -22,7 +22,7 @@ pub(crate) fn as_person(row: &Row) -> Result<Person> {
     let name = String::decode(&row[1])?;
     let description = String::decode(&row[2])?;
 
-    let episode_ids: Vec<i32> = if 4 < row.len() {
+    let episode_ids: Vec<i32> = if row.len() >= 4 {
         match i32::decode(&row[3]) {
             Ok(id) => vec![id],
             _ => Vec::new(),
@@ -47,15 +47,16 @@ pub(crate) fn aggregate_people(rowset: RowSet) -> Result<Vec<Person>> {
             .rows
             .iter()
             .try_fold(HashMap::<i32, Person>::new(), |mut acc, row| {
-                let mut p = as_person(row)?;
-                match p.id {
+                let mut person = as_person(row)?;
+                match person.id {
                     Some(id) => match acc.get(&id) {
                         Some(record) => {
-                            p.episode_ids.append(&mut record.episode_ids.clone());
-                            acc.insert(id, p);
+                            person.episode_ids.append(&mut record.episode_ids.clone());
+                            person.episode_ids.sort();
+                            acc.insert(id, person);
                         }
                         None => {
-                            acc.insert(id, p);
+                            acc.insert(id, person);
                         }
                     },
                     _ => {}
