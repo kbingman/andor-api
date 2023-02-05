@@ -1,5 +1,6 @@
 use anyhow::{Result, Context};
 use spin_sdk::pg::{self, ParameterValue};
+use db_adapter::DbAdapter;
 
 use crate::models::{as_episode, aggregate_episodes, Episode};
 
@@ -13,18 +14,8 @@ impl EpisodeDb {
     }
 }
 
-/// A Trait for connect arbitrary databases with CRUD actions
-/// This connect a Model struct to a given DB and describes a
-/// generic interface for connecting to the DB
-pub trait DbAdapter {
-    fn insert(&self, model: &Episode) -> Result<Option<Episode>>;
-    fn find_all(&self) -> Result<Vec<Episode>>;
-    fn find_one(&self, id: i32) -> Result<Option<Episode>>;
-    fn update(&self, id: i32, model: &Episode) -> Result<Option<Episode>>;
-    fn delete(&self, id: i32) -> Result<u64>;
-}
-
-impl DbAdapter for EpisodeDb {
+impl DbAdapter<Episode> for EpisodeDb {
+    /// Insert 
     fn insert(&self, model: &Episode) -> Result<Option<Episode>> {
         let sql = "
             INSERT INTO 
@@ -45,6 +36,7 @@ impl DbAdapter for EpisodeDb {
         })
     }
 
+    /// Find All 
     fn find_all(&self) -> Result<Vec<Episode>> {
         let sql = "
             SELECT 
@@ -61,6 +53,7 @@ impl DbAdapter for EpisodeDb {
         Ok(aggregate_episodes(rowset)?)
     }
 
+    /// Find One 
     fn find_one(&self, id: i32) -> Result<Option<Episode>> {
         let sql = "
             SELECT 
@@ -83,6 +76,7 @@ impl DbAdapter for EpisodeDb {
         })
     }
 
+    /// Update 
     fn update(&self, id: i32, model: &Episode) -> Result<Option<Episode>> {
         let sql = "
             UPDATE 

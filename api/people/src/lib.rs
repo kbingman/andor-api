@@ -6,8 +6,9 @@ use spin_sdk::{
     http::{Request, Response},
     http_component,
 };
+use db_adapter::DbAdapter;
 
-use crate::db::{DbAdapter, PeopleDb};
+use crate::db::PeopleDb;
 use crate::models::Person;
 
 mod db;

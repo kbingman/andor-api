@@ -1,18 +1,9 @@
 use anyhow::Result;
 use spin_sdk::pg::{self, ParameterValue};
 
-use crate::models::{aggregate_people, as_person, Person};
+use db_adapter::DbAdapter;
 
-/// A Trait for connect arbitrary databases with CRUD actions
-/// This connect a Model struct to a given DB and describes a
-/// generic interface for connecting to the DB
-pub trait DbAdapter<Model> {
-    fn insert(&self, model: &Model) -> Result<Option<Model>>;
-    fn find_all(&self) -> Result<Vec<Model>>;
-    fn find_one(&self, id: i32) -> Result<Option<Model>>;
-    fn update(&self, id: i32, model: &Model) -> Result<Option<Model>>;
-    fn delete(&self, id: i32) -> Result<u64>;
-}
+use crate::models::{aggregate_people, as_person, Person};
 
 pub(crate) struct PeopleDb {
     uri: String,
@@ -25,6 +16,7 @@ impl PeopleDb {
 }
 
 impl DbAdapter<Person> for PeopleDb {
+    /// Insert 
     fn insert(&self, model: &Person) -> Result<Option<Person>> {
         let sql = "
             INSERT INTO 
@@ -51,7 +43,8 @@ impl DbAdapter<Person> for PeopleDb {
             _ => None,
         })
     }
-
+    
+    /// Find All 
     fn find_all(&self) -> Result<Vec<Person>> {
         // let clause = "WHERE people.id in ($1, $2)";
         let sql = format!("
@@ -64,15 +57,12 @@ impl DbAdapter<Person> for PeopleDb {
             LEFT JOIN people_episodes on (people.id = people_episodes.person_id)
             {}
         ", "");
-        // let params = vec![ParameterValue]
-        let rowset = pg::query(&self.uri, &sql, &[
-            // ParameterValue::Int32(1),
-            // ParameterValue::Int32(4)
-        ])?;
+        let rowset = pg::query(&self.uri, &sql, &[])?;
 
         Ok(aggregate_people(rowset)?)
     }
 
+    /// Find one 
     fn find_one(&self, id: i32) -> Result<Option<Person>> {
         let sql = "
             SELECT 
@@ -93,6 +83,7 @@ impl DbAdapter<Person> for PeopleDb {
         })
     }
 
+    /// Update 
     fn update(&self, id: i32, model: &Person) -> Result<Option<Person>> {
         let sql = "
             UPDATE 
