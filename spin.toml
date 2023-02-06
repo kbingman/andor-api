@@ -47,3 +47,12 @@ postgres_uri = "postgres://postgres:postgres@127.0.0.1/postgres"
 command = "cargo build --target wasm32-wasi --release"
 workdir = "api/episodes"
 
+[[component]]
+id = "vespa-api"
+source = "target/wasm32-wasi/release/vespa_api.wasm"
+[component.trigger]
+route = "/vespa/..."
+[component.build]
+command = "cargo build --target wasm32-wasi --release"
+workdir = "api/vespa"
+

@@ -11,12 +11,6 @@ services:
     volumes: 
       - db:/var/lib/postgresql/data
       - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
-vespa:
-  image: vespaengine/vespa
-  hostname: vespa-container
-  ports:
-    - '8080:8080'
-    - '19071:19071'
 volumes:
   db:
     driver: local
