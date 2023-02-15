@@ -53,8 +53,9 @@ pub(crate) fn aggregate_episodes(rowset: RowSet) -> Result<Vec<Episode>> {
             .iter()
             .try_fold(HashMap::<i32, Episode>::new(), |mut acc, row| {
                 let mut episode = as_episode(row)?;
-                match episode.id {
-                    Some(id) => match acc.get(&id) {
+
+                if let Some(id) = episode.id {
+                    match acc.get(&id) {
                         Some(record) => {
                             episode.people_ids.append(&mut record.people_ids.clone());
                             episode.people_ids.sort();
@@ -63,8 +64,7 @@ pub(crate) fn aggregate_episodes(rowset: RowSet) -> Result<Vec<Episode>> {
                         None => {
                             acc.insert(id, episode);
                         }
-                    },
-                    _ => {}
+                    }
                 }
 
                 Ok(acc)

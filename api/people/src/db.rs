@@ -37,7 +37,7 @@ impl DbAdapter<Person> for PeopleDb {
 
                 Some(Person {
                     episode_ids,
-                    ..person.to_owned()
+                    ..person
                 })
             }
             _ => None,
@@ -62,7 +62,7 @@ impl DbAdapter<Person> for PeopleDb {
         );
         let rowset = pg::query(&self.uri, &sql, &[])?;
 
-        Ok(aggregate_people(rowset)?)
+        aggregate_people(rowset)
     }
 
     /// Find one
@@ -80,10 +80,7 @@ impl DbAdapter<Person> for PeopleDb {
         let rowset = pg::query(&self.uri, sql, &[ParameterValue::Int32(id)])?;
         let results = aggregate_people(rowset)?;
 
-        Ok(match results.first() {
-            Some(person) => Some(person.to_owned()),
-            _ => None,
-        })
+        Ok(results.first().map(|person| person.to_owned()))
     }
 
     /// Update
@@ -111,7 +108,7 @@ impl DbAdapter<Person> for PeopleDb {
 
                 Some(Person {
                     episode_ids,
-                    ..person.to_owned()
+                    ..person
                 })
             }
             _ => None,

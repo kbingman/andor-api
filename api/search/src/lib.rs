@@ -23,7 +23,7 @@ fn vespa_api(req: Request) -> Result<Response> {
     let db = VespaDb::new(uri.to_string());
     let query = match get_query(&req)? {
         Some(q) => q,
-        _ => "".to_string()
+        _ => "".to_string(),
     };
     let doc = db.search(&query)?;
 

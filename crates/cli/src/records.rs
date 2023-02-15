@@ -1,13 +1,15 @@
 use csv::StringRecord;
 use serde_json::{Map, Value};
 
+const SEPARATOR: &str = ",";
+
 /// Converts the Person CSV row into a JSON Map
 pub fn as_person(record: StringRecord) -> Map<String, Value> {
-    let episode_ids = if record[3] == "".to_string() {
+    let episode_ids = if record[3] == *"" {
         Vec::new()
     } else {
         record[3]
-            .split(",")
+            .split(SEPARATOR)
             .collect::<Vec<&str>>()
             .iter()
             .map(|id| Value::Number(id.parse().unwrap()))

@@ -50,7 +50,7 @@ impl DbAdapter<Episode> for EpisodeDb {
         ";
         let rowset = pg::query(&self.uri, sql, &[])?;
 
-        Ok(aggregate_episodes(rowset)?)
+        aggregate_episodes(rowset)
     }
 
     /// Find One
@@ -70,10 +70,7 @@ impl DbAdapter<Episode> for EpisodeDb {
         let rowset = pg::query(&self.uri, sql, &params)?;
         let results = aggregate_episodes(rowset)?;
 
-        Ok(match results.first() {
-            Some(episode) => Some(episode.to_owned()),
-            _ => None,
-        })
+        Ok(results.first().map(|episode| episode.to_owned()))
     }
 
     /// Update

@@ -2,8 +2,9 @@ use anyhow::Result;
 use vespa::document::VespaDocument;
 
 use crate::{
-    episode::Episode, 
-    vespa::{SearchQuery, Presentation}, fetch::fetch
+    episode::Episode,
+    fetch::fetch,
+    vespa::{Presentation, SearchQuery},
 };
 
 /// A generic Adapter for the Vespa search endpoint

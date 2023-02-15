@@ -25,7 +25,7 @@ pub fn get_api_from_request<Model: DeserializeOwned + 'static>(
     Ok(match path_info {
         Some(path) => match *req.method() {
             http::Method::POST => {
-                let json: Result<Model> = from_bytes(&req);
+                let json: Result<Model> = from_bytes(req);
                 match json {
                     Ok(model) => Api::Create(model),
                     Err(err) => {
@@ -41,7 +41,7 @@ pub fn get_api_from_request<Model: DeserializeOwned + 'static>(
             },
             http::Method::PUT => match get_id_from_path(path) {
                 Ok(Some(id)) => {
-                    let json: Result<Model> = from_bytes(&req);
+                    let json: Result<Model> = from_bytes(req);
                     match json {
                         Ok(model) => Api::Update(id, model),
                         Err(_) => Api::BadRequest,
