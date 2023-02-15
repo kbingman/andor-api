@@ -48,11 +48,12 @@ command = "cargo build --target wasm32-wasi --release"
 workdir = "api/episodes"
 
 [[component]]
-id = "vespa-api"
-source = "target/wasm32-wasi/release/vespa_api.wasm"
+id = "search-api"
+source = "target/wasm32-wasi/release/search_api.wasm"
+allowed_http_hosts = ["http://localhost:8080"]
 [component.trigger]
-route = "/vespa/..."
+route = "/api/search"
 [component.build]
 command = "cargo build --target wasm32-wasi --release"
-workdir = "api/vespa"
+workdir = "api/search"
 

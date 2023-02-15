@@ -1,0 +1,11 @@
+{
+  "put": "id:tv:episodes::one-way-out",
+  "fields": {
+    "episode_id": "10",
+    "series": "Andor",
+    "category": "Science Fiction",
+    "title": "One Way Out",
+    "description": "By breaking a water pipe and flooding his work floor, Cassian disables the floor's security system, allowing work crews there to overpower the few guards and escape. Kino uses the prison's intercom system to encourage other floors to escape and the rebellion sweeps through the entire prison. Despite his role in the escape, Kino reveals that he can't swim. Cassian swims with the other escapees and reaches land. Mon Mothma meets with Davo Sculdun, a shady businessman who offers to help finance her projects, but Mon refuses after Davo requests that Mon arrange a meeting between her daughter and his son, an initial step towards marriage in their Chandrilan culture. ISB supervisor Lonni Jung, secretly a rebel informant, meets with Luthen and updates him on ISB activities. The two men reflect on how they are both trapped in their roles.",
+    "people": "Cassian Andor, Luthen Rael, Dedra Meero, Mon Mothma, Kino Loy, Ruescott Melshi, Davo Sculdun, Ulaf, Ham, Jemboc, Taga, Xaul, Birnok, Zinska"
+  }
+}

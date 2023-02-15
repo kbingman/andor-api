@@ -1,0 +1,11 @@
+{
+  "put": "id:tv:episodes::the-eye",
+  "fields": {
+    "episode_id": "6",
+    "series": "Andor",
+    "category": "Science Fiction",
+    "title": "The Eye",
+    "description": "Aided by Gorn, the rebels infiltrate the garrison by posing as an escort squad for Commandant Jayhold Beehaz, Gorn's superior. They take Beehaz's family as hostages and force him to give them access to the payroll vault. While loading the credits onto a freighter, they are discovered by Imperial forces. Taramyn and Gorn are killed in the ensuing firefight. Cinta is unable to make it onto the ship, so only Cassian, Skeen, Vel, and Nemik escape from Aldhani. During takeoff, Nemik is crushed by an unsecured load of credits, and suffers a severe injury. They land on the planet Frezno to treat Nemik's injuries. With Vel occupied looking after Nemik, Skeen proposes to Cassian that they flee and split the payroll between the two. Enraged and fearing for his life, Cassian kills Skeen. He tells Vel about what happened and informs her of his plans to take the amount he was promised as payment and leave. Vel gives Cassian Nemik's manifesto, in accordance with Nemik's dying wishes. Back on Coruscant, the ISB agents are gathered to formulate reprisals to the heist, while Luthen hears news of the theft and quietly celebrates.",
+    "people": "Cassian Andor, Luthen Rael, Dedra Meero, Mon Mothma, Vel Sartha, Cinta Kaz, Kleya Marki, Karis Nemik, Lieutenant Gorn, Arvel Skeen, Taramyn Barcona, Commandant Jayhold Beehaz, Vanis Tigo"
+  }
+}

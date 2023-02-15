@@ -10,13 +10,13 @@ use crate::db::EpisodeDb;
 use crate::models::Episode;
 
 mod db;
-mod models;
 mod handlers;
+mod models;
 
 #[http_component]
 fn episode_api(req: Request) -> Result<Response> {
     let uri = spin_sdk::config::get("postgres_uri")?;
-    let api: Api<Episode> = get_api_from_request(req)?;
+    let api: Api<Episode> = get_api_from_request(&req)?;
     let db = EpisodeDb::new(uri);
 
     match api {

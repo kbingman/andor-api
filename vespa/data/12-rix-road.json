@@ -1,0 +1,11 @@
+{
+  "put": "id:tv:episodes::rix-road",
+  "fields": {
+    "episode_id": "12",
+    "series": "Andor",
+    "category": "Science Fiction",
+    "title": "Rix Road",
+    "description": "Cassian returns to Ferrix for Maarva's funeral and learns of Bix's imprisonment. Dedra Meero and the local Imperial garrison prepare to use the funeral to capture Andor for questioning regarding Axis, while Luthen plans-with Vel and Cinta's assistance-to kill Cassian using the Imperial ambush as cover. The ISB succeed in stopping Kreegyr's attack but leave no prisoners, angering Meero. Mothma's 13-year-old daughter Leida is introduced to Davo Sculdun's 14-year-old son. During the funeral, B2EMO displays a recording of Maarva, who rallies the populace to fight the Empire, creating a riot in the main quarter. During the confusion, Cassian rescues Bix, while Syril Karn saves Meero from being attacked. Meeting with B2EMO, Brasso, and several others in a shipyard, Cassian convinces them to take Bix somewhere safe away from Ferrix. Moved by the rebellion on Ferrix, Luthen returns to his ship where Cassian is waiting. Knowing that Luthen is there to assassinate him, Cassian offers Luthen the choice to either kill him or take him in, to which Luthen smiles. In a post-credits scene, droids assemble the machinery produced by the Narkina 5 prisoners on the firing dish of the Death Star.",
+    "people": "Cassian Andor, Syril Karn, Bix Caleen, Maarva Andor, Luthen Rael, Dedra Meero, Mon Mothma, Vel Sartha, Cinta Kaz, Kleya Marki, Brasso, Sergeant Linus Mosk, Davo Sculdun, Leida"
+  }
+}

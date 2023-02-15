@@ -33,12 +33,6 @@ export const App = () => {
   );
   console.log(peopleStore);
 
-  const handleSubmit = async (evt: any) => {
-    evt.preventDefault();
-    // const params = getFormJSON(getFormData(evt.target));
-    // const person = await createPerson(params);
-  };
-
   return (
     <div className="app">
       <h1>Andor API</h1>
@@ -58,11 +52,6 @@ export const App = () => {
           </div>
         ))}
       </div>
-
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="name" />
-        <button type="submit">Create</button>
-      </form>
     </div>
   );
 };

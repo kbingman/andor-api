@@ -240,7 +240,7 @@ dependencies = [
  "rest_api",
  "serde",
  "serde_json",
- "spin-sdk",
+ "spin-sdk 0.7.1",
  "wit-bindgen-rust",
 ]
 
@@ -605,6 +605,79 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646"
 
 [[package]]
+name = "lexical"
+version = "6.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c7aefb36fd43fef7003334742cbf77b243fcd36418a1d1bdd480d613a67968f6"
+dependencies = [
+ "lexical-core",
+]
+
+[[package]]
+name = "lexical-core"
+version = "0.8.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2cde5de06e8d4c2faabc400238f9ae1c74d5412d03a7bd067645ccbc47070e46"
+dependencies = [
+ "lexical-parse-float",
+ "lexical-parse-integer",
+ "lexical-util",
+ "lexical-write-float",
+ "lexical-write-integer",
+]
+
+[[package]]
+name = "lexical-parse-float"
+version = "0.8.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "683b3a5ebd0130b8fb52ba0bdc718cc56815b6a097e28ae5a6997d0ad17dc05f"
+dependencies = [
+ "lexical-parse-integer",
+ "lexical-util",
+ "static_assertions",
+]
+
+[[package]]
+name = "lexical-parse-integer"
+version = "0.8.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6d0994485ed0c312f6d965766754ea177d07f9c00c9b82a5ee62ed5b47945ee9"
+dependencies = [
+ "lexical-util",
+ "static_assertions",
+]
+
+[[package]]
+name = "lexical-util"
+version = "0.8.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5255b9ff16ff898710eb9eb63cb39248ea8a5bb036bea8085b1a767ff6c4e3fc"
+dependencies = [
+ "static_assertions",
+]
+
+[[package]]
+name = "lexical-write-float"
+version = "0.8.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "accabaa1c4581f05a3923d1b4cfd124c329352288b7b9da09e766b0668116862"
+dependencies = [
+ "lexical-util",
+ "lexical-write-integer",
+ "static_assertions",
+]
+
+[[package]]
+name = "lexical-write-integer"
+version = "0.8.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e1b6f3d1f4422866b68192d62f77bc5c700bee84f3069f2469d7bc8c77852446"
+dependencies = [
+ "lexical-util",
+ "static_assertions",
+]
+
+[[package]]
 name = "libc"
 version = "0.2.139"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -694,7 +767,7 @@ dependencies = [
  "bytes",
  "http",
  "rest_api",
- "spin-sdk",
+ "spin-sdk 0.7.1",
  "wit-bindgen-rust",
 ]
 
@@ -799,7 +872,7 @@ dependencies = [
  "rest_api",
  "serde",
  "serde_json",
- "spin-sdk",
+ "spin-sdk 0.7.1",
  "wit-bindgen-rust",
 ]
 
@@ -1033,7 +1106,7 @@ dependencies = [
  "http",
  "serde",
  "serde_json",
- "spin-sdk",
+ "spin-sdk 0.7.1",
 ]
 
 [[package]]
@@ -1072,6 +1145,23 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d29ab0c6d3fc0ee92fe66e2d99f700eab17a8d57d1c1d3b748380fb20baa78cd"
 
 [[package]]
+name = "search-api"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "bytes",
+ "db_adapter",
+ "http",
+ "rest_api",
+ "serde",
+ "serde-querystring",
+ "serde_json",
+ "spin-sdk 0.8.0",
+ "vespa",
+ "wit-bindgen-rust",
+]
+
+[[package]]
 name = "security-framework"
 version = "2.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1101,6 +1191,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bb7d1f0d3021d347a83e556fc4683dea2ea09d87bccdf88ff5c12545d89d5efb"
 dependencies = [
  "serde_derive",
+]
+
+[[package]]
+name = "serde-querystring"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "becebfd8f87365cf2c14109b5abc9aeadf2394ac3f5637dc3851c39d129e806a"
+dependencies = [
+ "lexical",
+ "serde",
 ]
 
 [[package]]
@@ -1196,6 +1296,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "spin-macro"
+version = "0.1.0"
+source = "git+https://github.com/fermyon/spin?tag=v0.8.0#70862363b3d7213b48a69631273a743fe502f02a"
+dependencies = [
+ "anyhow",
+ "bytes",
+ "http",
+ "proc-macro2",
+ "quote",
+ "syn",
+ "wit-bindgen-gen-core",
+ "wit-bindgen-gen-rust-wasm",
+ "wit-bindgen-rust",
+]
+
+[[package]]
 name = "spin-sdk"
 version = "0.7.1"
 source = "git+https://github.com/fermyon/spin?tag=v0.7.1#6cf7447036b7c9238cfa6383cf769b4500e29a38"
@@ -1204,10 +1320,30 @@ dependencies = [
  "bytes",
  "form_urlencoded",
  "http",
- "spin-macro",
+ "spin-macro 0.1.0 (git+https://github.com/fermyon/spin?tag=v0.7.1)",
  "thiserror",
  "wit-bindgen-rust",
 ]
+
+[[package]]
+name = "spin-sdk"
+version = "0.8.0"
+source = "git+https://github.com/fermyon/spin?tag=v0.8.0#70862363b3d7213b48a69631273a743fe502f02a"
+dependencies = [
+ "anyhow",
+ "bytes",
+ "form_urlencoded",
+ "http",
+ "spin-macro 0.1.0 (git+https://github.com/fermyon/spin?tag=v0.8.0)",
+ "thiserror",
+ "wit-bindgen-rust",
+]
+
+[[package]]
+name = "static_assertions"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
 
 [[package]]
 name = "stringprep"
@@ -1486,17 +1622,6 @@ version = "0.1.0"
 dependencies = [
  "serde",
  "serde_json",
-]
-
-[[package]]
-name = "vespa-api"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "bytes",
- "http",
- "spin-sdk",
- "wit-bindgen-rust",
 ]
 
 [[package]]

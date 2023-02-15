@@ -1,5 +1,5 @@
 [package]
-name = "vespa-api"
+name = "search-api"
 authors = ["Keith Bingman <keith@keithbingman.com>"]
 description = "Vespa API"
 version = "0.1.0"
@@ -9,14 +9,15 @@ edition = "2021"
 crate-type = [ "cdylib" ]
 
 [dependencies]
-# Useful crate to handle errors.
 anyhow = "1"
-# Crate to simplify working with bytes.
 bytes = "1"
-# General-purpose crate with common HTTP types.
 http = "0.2"
-# The Spin SDK.
-spin-sdk = { git = "https://github.com/fermyon/spin", tag = "v0.7.1" }
-# Crate that generates Rust Wasm bindings from a WebAssembly interface.
+serde = {version = "1", features=["derive"]}
+serde_json = "1"
+serde-querystring = "0.2.0"
+spin-sdk = { git = "https://github.com/fermyon/spin", tag = "v0.8.0" }
 wit-bindgen-rust = { git = "https://github.com/bytecodealliance/wit-bindgen", rev = "cb871cfa1ee460b51eb1d144b175b9aab9c50aba" }
+rest_api = { path = "../../crates/rest-api" }
+db_adapter = { path = "../../crates/db-adapter" }
+vespa = { path = "../../crates/vespa" }
 

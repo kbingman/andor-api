@@ -1,12 +1,12 @@
 use anyhow::Result;
 
+use db_adapter::DbAdapter;
 use rest_api::api::{get_api_from_request, Api};
 use rest_api::handlers::{bad_request, internal_server_error, method_not_allowed, not_found, ok};
 use spin_sdk::{
     http::{Request, Response},
     http_component,
 };
-use db_adapter::DbAdapter;
 
 use crate::db::PeopleDb;
 use crate::models::Person;
@@ -59,7 +59,7 @@ pub(crate) fn delete<Db: DbAdapter<Person>>(db: Db, id: i32) -> Result<Response>
 #[http_component]
 fn people_api(req: Request) -> Result<Response> {
     let uri = spin_sdk::config::get("postgres_uri")?;
-    let api: Api<Person> = get_api_from_request(req)?;
+    let api: Api<Person> = get_api_from_request(&req)?;
     let people_db = PeopleDb::new(uri);
 
     match api {

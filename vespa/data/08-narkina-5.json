@@ -1,0 +1,11 @@
+{
+  "put": "id:tv:episodes::narkina-5",
+  "fields": {
+    "episode_id": "8",
+    "series": "Andor",
+    "category": "Science Fiction",
+    "title": "Narkina 5",
+    "description": "Cassian is brought to a prison surrounded by water on Narkina 5 where he spends every day working in monotonous heavy industry with hundreds of other prisoners. Vel and Cinta travel to Ferrix to search for him. When Maarva falls ill, Bix attempts to contact Luthen about Cassian's whereabouts, but Luthen, worried about being exposed to anyone monitoring communications, does not answer. He then leaves Coruscant to meet with Saw Gerrera. Rael attempts to hire Gerrera's rebel cell to act as air support for a raid on an Imperial power station at Spellhaus organized by Anto Kreegyr, but is turned away. Dedra Meero questions Syril Karn about his experiences on Ferrix, but declines his offer to help with her investigation. She leads a unit to Ferrix herself, where she apprehends Bix",
+    "people": "Cassian Andor, Syril Karn, Bix Caleen, Maarva Andor, Luthen Rael, Dedra Meero, Mon Mothma, Vel Sartha, Kino Loy, Ulaf, Ham, Jemboc, Taga, Xaul, Birnok, Zinska,"
+  }
+}

@@ -17,7 +17,9 @@ pub enum Api<Model> {
 }
 
 /// Gets the correct API response based on the Request object
-pub fn get_api_from_request<Model: DeserializeOwned + 'static>(req: Request) -> Result<Api<Model>> {
+pub fn get_api_from_request<Model: DeserializeOwned + 'static>(
+    req: &Request,
+) -> Result<Api<Model>> {
     let path_info = req.headers().get("spin-path-info");
 
     Ok(match path_info {
