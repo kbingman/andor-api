@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::prime-crew",
+  "fields": {
+    "episode_id": 4,
+    "season": 1,
+    "series": "For All Mankind",
+    "category": "Drama",
+    "title": "Prime Crew",
+    "description": "NASA scientists discover that there could be patches of ice on the Moon, which has the potential of being turned into rocket fuel. A Soviet mission goes bad and crashes on the Moon, killing a cosmonaut. The equipment they had appears to have been to help establish a Moon base near the frozen water source. This pushes NASA to accelerate their own plans. The 1972 presidential election is approaching and Ted Kennedy is the front runner for the Democratic nomination. The Vietnam War ends. Deke Slayton makes a change to the Apollo 15 crew, replacing Gordo Stevens with Molly Cobb. Stevens wonders what he did wrong and confesses to Tracy, but still wants to celebrate her accomplishments. While training for the Apollo 15 launch, Molly is annoyed with Ed and the other crew member's sexism, and Ed is disapproving of Molly's boasting. Though she is doubted, Molly performs smoothly at the launch.",
+    "people": ""
+  }
+}

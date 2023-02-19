@@ -1,7 +1,8 @@
 {
   "put": "id:tv:episodes::narkina-5",
   "fields": {
-    "episode_id": "8",
+    "episode_id": 8,
+    "season": 1,
     "series": "Andor",
     "category": "Science Fiction",
     "title": "Narkina 5",

@@ -1,7 +1,8 @@
 {
   "put": "id:tv:episodes::reckoning",
   "fields": {
-    "episode_id": "3",
+    "episode_id": 3,
+    "season": 1,
     "series": "Andor",
     "category": "Science Fiction",
     "title": "Reckoning",

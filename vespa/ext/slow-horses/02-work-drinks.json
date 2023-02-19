@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::work-drinks",
+  "fields": {
+    "episode_id": 2,
+    "season": 1,
+    "series": "Slow Horses",
+    "category": "Drama",
+    "title": "Work Drinks",
+    "description": "Hassan's kidnappers, Moe, Larry, Curly and Zeppo, hold him hostage in a London terrace basement, with it transpiring that Simmonds is behind the kidnapping. Cartwright, having copied the contents of Hobden's USB drive before delivering it to Regent's Park, realises it contains no information and manipulates a rival, James 'Spider' Webb, into confirming the same. Standish begins having flashbacks to the death of a former colleague of hers and Lamb's, Charles Partner. Slough House's cyber expert Roddy Ho discovers he cannot hack Hobden's laptop as it is air gapped, furthering everybody's suspicions. Deputy-Director General Diana Taverner approaches another member of Slough House, Jed Moody, and instructs him to do some \"off book\" work for her. Two other members of Slough House, Min Harper and Louisa Guy, meet in the pub after work and lament their failed careers. Cartwright and Sid are assigned to tail Hobden, but she confesses that she moved to Lamb's team to keep tabs on Cartwright. The two see a masked man enter Hobden's home and pursue him, discovering upon entry that the journalist was able to destroy his hard drive with thermite. Hobden escapes as River and Sid fight the masked man, who escapes after shooting Sid in the head.",
+    "people": ""
+  }
+}

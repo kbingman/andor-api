@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::the-grey",
+  "fields": {
+    "episode_id": 18,
+    "season": 2,
+    "series": "For All Mankind",
+    "category": "Drama",
+    "title": "The Grey",
+    "description": "Amid rising tensions with the Soviets, the Apollo-Soyuz crews are told to repeatedly delay their docking, to Danielle's frustration. Houston is unaware that the Soviets have attacked Jamestown. Gordo and Tracy hide in the galley, and manage to send Houston a signal which Aleida notices. The U.S. Marines and the cosmonauts engage in a firefight, resulting in two deaths on both sides and unseen damage to the Jamestown nuclear reactor's cooling system. Houston, Gordo and Tracy hatch a plan to fix the reactor from outside, using temporary suits that they construct from duct tape. Danielle disobeys Houston's order to abandon the Apollo-Soyuz mission, and the astronauts and cosmonauts finally greet each other. This public gesture of friendship defuses the nuclear tension on Earth. Meanwhile Pathfinder and Buran nearly launch missiles at each other in lunar orbit, but Ed decides to destroy the Sea Dragon supply ship instead. Tracy and Gordo save the reactor from melting down, but die from vacuum exposure. The Soviets leave Jamestown. On Earth, the Soviets are shown to be using Sergei to try to get classified information from Margo. In the final shot, it is 1995 and a human is shown walking on the surface of Mars.",
+    "people": ""
+  }
+}

@@ -1,7 +1,8 @@
 {
   "put": "id:tv:episodes::nobody-is-listening",
   "fields": {
-    "episode_id": "9",
+    "episode_id": 9,
+    "season": 1,
     "series": "Andor",
     "category": "Science Fiction",
     "title": "Nobody Is Listening",

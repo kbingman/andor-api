@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::old-scores",
+  "fields": {
+    "episode_id": 12,
+    "season": 2,
+    "series": "Slow Horses",
+    "category": "Drama",
+    "title": "Old Scores",
+    "description": "Louisa interrogates a dying Kyril and learns that Pashkin and his associates were meant to drain Nevsky's accounts from the Glasshouse while it was evacuated. River discovers the bomb left at the airfield and realizes the attack was a hoax, calling Taverner to have the Code September retracted. Alex Tropper diverts her course, defusing the situation once the Glasshouse has been closed long enough for the heist. Ho notifies River that Chernitsky's destination is Tunbridge Wells, where his grandfather lives. Chernitsky ambushes Ho on the train and escapes after an altercation with Dander. Lamb calls Katinsky, deducing that he is the supposedly fictional Russian spymaster \"Alexander Popov\". Katinsky reveals that outside of his part in the Glasshouse plot, he also intended to kill Lamb in retribution for Charles Partner, his own \"Joe\" who acted as his informant while he was First Desk at MI5. Lamb, already aware of this, had notified David Cartwright that he was another potential target due to his complicity in Partner's death. By the time River arrives at Tunbridge Wells by plane with Kelly Tropper, David has already ambushed and killed Chernitsky with a shotgun. Louisa and Longridge pursue and kill Pashkin when he attempts to escape the Glasshouse, having betrayed and killed Piotr to steal an extra stash of diamonds along the way. Realizing he has been outmaneuvered, Katinsky goads Lamb to kill him. Lamb instead leaves Katinsky with one bullet left in his revolver, and Katinsky kills himself. Taverner and Judd create a cover story for the Code September hoax, blaming it publicly on a security glitch and implicating the Prime Minister, thereby improving Judd's odds against him in the next election. Lamb requests Taverner to place a plaque for Min Harper with other fallen MI5 agents at St. Leonard's church, but is denied. Lamb and the Slow Horses break into the church and hide a plaque for Min behind a bench. After the rest of Slough House leaves, Lamb adds a handwritten note commemorating Dickie Bow's service as a joe.",
+    "people": ""
+  }
+}

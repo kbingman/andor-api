@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::nixons-women",
+  "fields": {
+    "episode_id": 3,
+    "season": 1,
+    "series": "For All Mankind",
+    "category": "Drama",
+    "title": "Nixon's Women",
+    "description": "Deke Slayton must recruit female astronauts after the Soviet landing prompts intense public pressure. An elimination process whittles the initial field of 20 \"astronaut candidates\" (informally \"ASCANs\") to just five, including Tracy Stevens (wife of Apollo 15's Gordo Stevens), the last two of the Mercury 13 Molly Cobb and Patty Doyle, a black woman named Danielle Poole who works as a NASA computer, and the reserved Ellen Waverly. NASA probes find water on the Moon, highlighting a spot to put the American Moon base. During a training session on a 20-mile hike, Tracy assists an injured Ellen and helps her to the finish line at the risk of not completing it herself. The candidates then practice piloting for simulated moon landing with the Lunar Landing Training Vehicle. While driving out of the city, Gordo spots smoke and returns to the NASA base, where Tracy meets him and reveals that Patty Doyle has died in a crash.",
+    "people": ""
+  }
+}

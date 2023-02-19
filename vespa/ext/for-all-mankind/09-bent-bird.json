@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::bent-bird",
+  "fields": {
+    "episode_id": 9,
+    "season": 1,
+    "series": "For All Mankind",
+    "category": "Drama",
+    "title": "Bent Bird",
+    "description": "Karen struggles to cope with Shane's death but finds comfort with Wayne. Apollo 24 has a technical failure while in orbit so they cannot transit to the Moon. Apollo 25 (with Dennis, Tracy, and Molly) quickly launches to fix Apollo 24, but just after the repairs are finished, Apollo 24's engines ignite prematurely, incinerating Harrison Liu while leaving Molly adrift. On Apollo 24, Ellen is knocked out and Deke's status is unknown as he was tethered outside to the spacecraft. Molly is rescued, but the accident results in a trajectory change which will cause Apollo 24 to miss the Moon and fly into deep space. Tensions escalate between the rival lunar explorers, and the Soviets investigate the U.S. lunar mine. Octavio is uncovered as an illegal immigrant and is apprehended by the authorities. Later, without enough oxygen to return to his base, a cosmonaut asks for help at Jamestown. Ed invites him in, but depressurizes the airlock after the cosmonaut removes his space suit.",
+    "people": ""
+  }
+}

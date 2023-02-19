@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::the-bleeding-edge",
+  "fields": {
+    "episode_id": 12,
+    "season": 2,
+    "series": "For All Mankind",
+    "category": "Drama",
+    "title": "The Bleeding Edge",
+    "description": "Molly lies to Ellen about going out to rescue Wubbo, but Ellen cautiously takes them both back to Earth with her. On the ground, a hero’s welcome awaits but Molly is affected by her exposure to the harmful radiation. Ellen begins a new post as Deputy NASA Administrator and tries to resist calls to cut funding to the Mars program while Margo plans a joint Apollo-Soyuz mission between the US and Soviet Union which could de-escalate tensions yet possibly compromise classified NASA technology. Meanwhile, Kelly looks at college brochures for Annapolis and quizzes Tracy and Gordo's eldest son Danny, who is on leave from there, for information. Danielle asks to go back to the Moon during a catch-up with fellow Jamestown pioneers Ed and Gordo. After a family reunion, Gordo's excessive drinking forces Karen to call Ed down to the Outpost to intervene. As he walks his friend home, Gordo drunkenly confesses to Ed he feels he left behind a piece of himself on the Moon; he feels lost and like an embarrassment to his boys. Ed assigns Danielle and Gordo to the next Moon mission.",
+    "people": ""
+  }
+}

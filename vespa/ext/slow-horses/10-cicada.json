@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::cicada",
+  "fields": {
+    "episode_id": 10,
+    "season": 2,
+    "series": "Slow Horses",
+    "category": "Drama",
+    "title": "Cicada",
+    "description": "Rebecca recounts that Min was attacked and run over by Pitor and Kyril, and finished off by Chernitsky before his death was staged. Lamb discovers Katinsky's involvement as a triple agent; he agreed to assist the Russians and distract Lamb in exchange for facing no repercussions for his defection decades earlier. Standish speaks with Victor Krymov, the intermediary who set up the meet between Paskhin and Webb. Lamb suggests that Krymov lied about Pashkin being Nevsky's representative, with the younger Russian likely being his competitor. Dander and Lamb visit Nevsky's residence to find his bodyguards dead and Nevsky murdered by radiation poisoning. Louisa meets with Pashkin at his hotel armed with a utility knife, intent on torturing him as she believes he is a fraud and responsible for Min's death. She is stopped by Longridge. Lamb orders her to temporarily stand down and proceed with the meeting, as Pashkin might resist interrogation. He approaches Regents Park Headquarters. Chernitsky leaves the Tropper residence and is pursued by Cartwright, who confronts him and Katinsky at the airfield loading an improvised explosive device onto a plane. Alex Tropper arrives and explains Katinsky is another friend from university. Then she incapacitates River with a stun gun, revealing she is the sleeper agent.",
+    "people": ""
+  }
+}

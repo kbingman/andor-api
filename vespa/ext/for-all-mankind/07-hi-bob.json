@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::hi-bob",
+  "fields": {
+    "episode_id": 7,
+    "season": 1,
+    "series": "For All Mankind",
+    "category": "Drama",
+    "title": "Hi Bob",
+    "description": "NASA has replaced the component that caused the Apollo 23 accident, but the Apollo 24 relief mission is continually delayed for different reasons involving the wrongful production and manufacturing of the Saturn V. Gordo begins to develop mental health problems from the prolonged isolation. Ed decides that Gordo should be evacuated back to Earth with Danielle, even though this means Gordo would be prevented from ever flying again. Danielle deliberately breaks her arm, providing an excuse for Gordo to bring her back to Earth without revealing his psychological issues. Danielle's husband is unable to get a job. After harsh interrogations by the FBI, Ellen and Larry choose to marry to avoid a potential gay sex scandal, though Pam, Ellen's lover, tells her they are over if she accepts the proposal. Ed's son Shane keeps getting into trouble at school, and steals from a local store. Karen slaps him then grounds him until she returns home. Shane sneaks out to participate in a basketball game and is hit by a car on the way.",
+    "people": ""
+  }
+}

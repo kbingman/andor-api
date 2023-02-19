@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::aldhani",
+  "fields": {
+    "episode_id": 4,
+    "season": 1,
+    "series": "Andor",
+    "category": "Science Fiction",
+    "title": "Aldhani",
+    "description": "Luthen takes Cassian to the planet Aldhani, asking him to join a robbery mission there. Cassian is reluctant but eventually agrees. Luthen asks him to use a pseudonym among the rebels, and Cassian chooses \"Clem\". Vel, the rebel group's leader, introduces him to the rest of the group but keeps Luthen's involvement a secret. They explain to Cassian that they plan on stealing the payroll of an Imperial sector from a key Imperial supply hub, taking advantage of a rare natural phenomenon in Aldhani's sky to escape since their getaway vehicle is slow. Meanwhile on Coruscant, Luthen, posing as an antiques dealer, meets with Senator Mon Mothma, and they discuss challenges in keeping their opposition to the Empire hidden. Karn goes to live with his mother after being castigated and fired. Imperial Security Bureau (ISB) lieutenant Dedra Meero seeks access and authority over the Ferrix incident, but is opposed by a colleague and a senior officer.",
+    "people": "Cassian Andor, Syril Karn, Luthen Rael, Dedra Meero, Mon Mothma, Vel Sartha, Cinta Kaz, Kleya Marki, Chief Hyne, Karis Nemik, Lieutenant Gorn, Arvel Skeen, Taramyn Barcona, Leida"
+  }
+}

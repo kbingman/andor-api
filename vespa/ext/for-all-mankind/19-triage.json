@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::triage",
+  "fields": {
+    "episode_id": 18,
+    "season": 2,
+    "series": "For All Mankind",
+    "category": "Drama",
+    "title": "Triage",
+    "description": "In retaliation for the killing of the cosmonaut, the Soviets launch Buran to the Moon where it could threaten Jamestown base and any arriving spacecraft. In response, NASA launches the Pathfinder mission ahead of time, with instructions to \"intercede\" if necessary. Despite the tensions, the two vehicles for the Apollo-Soyuz mission are launched. Karen confesses her adultery to Ed, and says she wants them to have marriage counseling. Molly and Wayne argue about the experimental treatment she wants to get for her glaucoma. She eventually decides against the treatment. After realizing that she is an obstacle to Ellen's promising political career, Pam tells Ellen she is returning to her old girlfriend. Two cosmonauts visit Jamestown to see their injured comrade who is still unconscious. They retrieve their dead comrade's remains. The injured cosmonaut wakes up later and when told he is in Jamestown declares that he wishes to defect. Later, the Jamestown crew see a cosmonaut shoot a hole in one of their windows, causing severe depressurization and the death of one astronaut. Several armed cosmonauts enter Jamestown base.",
+    "people": ""
+  }
+}

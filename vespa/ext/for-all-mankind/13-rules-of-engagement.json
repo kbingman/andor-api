@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::the-rules-of-engagement",
+  "fields": {
+    "episode_id": 13,
+    "season": 2,
+    "series": "For All Mankind",
+    "category": "Drama",
+    "title": "The Rules of Engagement",
+    "description": "The Americans plan to send guns to the Moon to take a mining site back from the Soviets after Ed realizes they bugged the base 10 years ago. Margo attempts to reconcile with Aleida after almost a decade by offering her a Systems Engineer position at NASA after learning from Aleida's boyfriend, Davey, that she will be deported if she cannot hold a job. Aleida refuses to accept, not wanting to be embarrassed as she has been fired from all her past jobs for behavioral issues, though her past bosses have complimented her skills and engineering. Davey convinces her to take the job, but she breaks up with him for going behind her back. Tracy's escapade in the Outpost ends with her calling for Gordo's help, fueling their feud that may further affect their mission assignments. Kelly makes it clear that she wants to attend the Naval Academy in Annapolis. Karen comes to terms with this, but Ed becomes furious, not wanting to lose Kelly like he lost Shane. They eventually realize that they need to let Kelly live her own life and allow her to attend the academy.",
+    "people": ""
+  }
+}

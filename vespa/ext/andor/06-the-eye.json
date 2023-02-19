@@ -1,7 +1,8 @@
 {
   "put": "id:tv:episodes::the-eye",
   "fields": {
-    "episode_id": "6",
+    "episode_id": 6,
+    "season": 1,
     "series": "Andor",
     "category": "Science Fiction",
     "title": "The Eye",

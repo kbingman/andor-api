@@ -1,7 +1,8 @@
 {
   "put": "id:tv:episodes::that-would-be-me",
   "fields": {
-    "episode_id": "2",
+    "episode_id": 2,
+    "season": 1,
     "series": "Andor",
     "category": "Science Fiction",
     "title": "That Would Be Me",

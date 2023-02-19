@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::home-again",
+  "fields": {
+    "episode_id": 6,
+    "season": 1,
+    "series": "For All Mankind",
+    "category": "Drama",
+    "title": "Home Again",
+    "description": "By August 24, 1974, Jamestown Base has three people in it: Edward Baldwin, Gordo Stevens, and Danielle Poole. The Equal Rights Amendment is ratified as an amendment to the Constitution as a result of campaigning by President Ted Kennedy. Apollo 23 explodes on the launchpad, killing 11 members of the ground crew and Gene Kranz, the new Director of Johnson Space Center. 60 days later the USSR announces the establishment of a Soviet Moon base named Zvezda, located eight miles (13 km) away from Jamestown Base. Margo notices Aleida working on her math homework. The FBI investigation on Apollo 23 turns its focus to Ellen and Larry's private life. Margo visits Von Braun, who tells her that her father worked on the Manhattan Project. He tells her of evidence that political factors indirectly caused the Apollo 23 disaster, which Margo uses to blackmail NASA into making her a Flight Director. Richard Nixon is pardoned for the Watergate scandal by President Kennedy. Gordo sees some unexplained red flashing lights near Jamestown Base.",
+    "people": ""
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::in-perpetuity",
+  "fields": {
+    "episode_id": 3,
+    "season": 1,
+    "series": "Severance",
+    "category": "Drama",
+    "title": "In Perpetuity",
+    "description": "Petey tells Mark that mysterious benefactors helped him undergo the reintegration procedure. While Mark is at work, his sister Devon and brother-in-law Ricken deliver a book authored by the latter to his doorstep, which Mrs. Selvig steals and takes to Lumon to check for hidden messages. As she searches Mark's house, Petey recognizes her as Cobel and flees the house, suffering more hallucinations and eventually collapsing at a convenience store. At the office, Helly learns her resignation request sent to her \"outie\" has been denied. Mark thwarts her various attempts to smuggle other messages to her outie. To help Helly understand why she is working at Lumon, Irving suggests they show her the office's Perpetuity Wing, which documents the history of Lumon's founder, Kier Eagan, and his succeeding dynasty. On the way to the Perpetuity Wing, Dylan rumors with the group of Optics and Design's failed \"coup\" years in the past, which Mark dismisses as fake. After attempting another escape, Helly is brought to the break room, where Milchick forces her to repeatedly recite an apologetic passage. After his shift, Mark follows ambulance traffic to the convenience store and witnesses Petey being carried away by paramedics after his breathing stops. Mark rushes home to remove evidence of Petey's stay, but is interrupted when Petey's abandoned cellphone rings.",
+    "people": ""
+  }
+}

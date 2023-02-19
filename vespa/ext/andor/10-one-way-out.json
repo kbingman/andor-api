@@ -1,7 +1,8 @@
 {
   "put": "id:tv:episodes::one-way-out",
   "fields": {
-    "episode_id": "10",
+    "episode_id": 10,
+    "season": 1,
     "series": "Andor",
     "category": "Science Fiction",
     "title": "One Way Out",

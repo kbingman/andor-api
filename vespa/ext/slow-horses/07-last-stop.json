@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::last-stop",
+  "fields": {
+    "episode_id": 7,
+    "season": 2,
+    "series": "Slow Horses",
+    "category": "Drama",
+    "title": "Last Stop",
+    "description": "Former field agent Richard Bough, aka Dickie Bow, recognizes a man who tortured him during the Cold War, follows him, and dies on a rail replacement bus of an apparent heart attack. Jackson Lamb investigates, finding Bough's hidden phone under the seat with the message “cicada”, and gets the team to look deeper. River speaks with his grandfather about Bough's death. David discusses the \"cicada\" theory of Russian sleeper agents embedded in British society, which MI5 dismissed as a hoax after no sleepers were found and discovered that the program's alleged mastermind, Alexander Popov, did not exist. He tells River that in East Berlin Bough went AWOL and was assumed to have defected, but returned drunk. He claimed he was kidnapped and tortured by Popov, who force-fed him brandy, but wasn’t believed, and was fired. David dismisses River's theory that Bough's death was the work of the FSB or related to the conspiracy, but seems generally unsettled and warns River to be careful. Min and Louisa are seconded by Webb to provide background security for a clandestine meeting at The Glasshouse between him and Arkady Pashkin, a representative of UK-based energy oligarch and defector Ilya Nevsky. Ho and newcomer Shirley Dander retrieve CCTV footage from the bus and train, showing that the man Bough was following discreetly poisoned him and then took a further train to Stroud in The Cotswolds. River approaches Lamb, revealing that he knows about the cicada conspiracy and is going to Stroud to pursue the matter further.",
+    "people": ""
+  }
+}

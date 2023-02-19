@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::rupture",
+  "fields": {
+    "episode_id": 8,
+    "season": 1,
+    "series": "For All Mankind",
+    "category": "Drama",
+    "title": "Rupture",
+    "description": "Back on Earth, Gordo is seeing a psychiatrist, without NASA's knowledge, and Danielle worries that his willingness to publicly reveal that she broke her arm for him will get both of them grounded by officials. Shane Baldwin's accident leaves him brain dead. Karen frantically holds out hope, but after accepting that Shane is beyond saving, she takes him off the respirator. Karen decides that Ed should not know about Shane's accident. Ed is told to spy on the Soviet base, and then discovers a Soviet camera has been recording him working inside the crater. The Soviets send Ed a condolence message, confusing him, until Karen reveals that Shane is dead. Ed destroys the Soviet camera. Aleida is given a scholarship for a math and physics program, but considers delaying her scholarship as she does not want to leave her friends and new boyfriend.",
+    "people": ""
+  }
+}

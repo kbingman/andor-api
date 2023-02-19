@@ -1,7 +1,8 @@
 {
   "put": "id:tv:episodes::kassa",
   "fields": {
-    "episode_id": "1",
+    "episode_id": 1,
+    "season": 1,
     "series": "Andor",
     "category": "Science Fiction",
     "title": "Kassa",

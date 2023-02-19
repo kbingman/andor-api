@@ -1,7 +1,8 @@
 {
   "put": "id:tv:episodes::daughter-of-ferrix",
   "fields": {
-    "episode_id": "11",
+    "episode_id": 11,
+    "season": 1,
     "series": "Andor",
     "category": "Science Fiction",
     "title": "Daughter of Ferrix",

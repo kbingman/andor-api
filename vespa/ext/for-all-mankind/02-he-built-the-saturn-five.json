@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::he-built-the-saturn-five",
+  "fields": {
+    "episode_id": 2,
+    "season": 1,
+    "series": "For All Mankind",
+    "category": "Drama",
+    "title": "He Built the Saturn Five",
+    "description": "After a harrowing liftoff made necessary by their near-crash landing, the crew of Apollo 11 successfully returns from the Moon. Director Wernher von Braun opposes President Nixon's directive to build a military Moon base. Representative Sandman tells Baldwin that if he publicly criticizes von Braun about the aborted Apollo 10 landing, Nixon will reinstate him as an active astronaut on Apollo 15. Instead, confusing and angering Sandman, Baldwin defends von Braun, but Nixon's men use his past involvement with the Nazi regime to remove him as Deputy Associate Administrator for Planning. Margo confronts von Braun about his past, and he defends his choices, much to her disappointment. Deke Slayton reinstates Baldwin as commander of Apollo 15 even though he didn't do what Sandman wanted. As the Apollo 12 mission launches, the Soviet Union lands the first woman on the Moon, to the shock of everybody in flight control.",
+    "people": ""
+  }
+}
