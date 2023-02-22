@@ -9,7 +9,10 @@ pub struct Presentation {
 #[derive(Clone, Deserialize, Serialize, Debug)]
 pub struct SearchQuery {
     pub yql: String,
-    pub query: String,
+    pub query: Option<String>,
+    #[serde(rename = "input.query(e)")]
+    pub input: Option<String>,
+    pub hits: u32,
     pub offset: u32,
     #[serde(rename = "type")]
     pub query_type: String,

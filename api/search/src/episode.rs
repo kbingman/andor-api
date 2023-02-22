@@ -4,7 +4,9 @@ use serde::{Deserialize, Serialize};
 #[serde(rename_all = "camelCase")]
 pub struct Episode {
     series: Option<String>,
-    // episode_id: Option<u32>,
+    season: Option<i32>,
+    #[serde(rename(deserialize = "episode_id", serialize = "episodeId"))]
+    episode_id: Option<i32>,
     title: String,
-    description: String,
+    description: Option<String>,
 }

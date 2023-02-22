@@ -1,12 +1,17 @@
 schema episodes {
     document episodes {
-        field episode_id type string {
+        field episode_id type int {
+            indexing: summary | attribute
+            attribute: fast-search
+        }
+        field season type int {
             indexing: summary | attribute
             attribute: fast-search
         }
         field series type string {
-            indexing: summary | attribute
+            indexing: index | summary | attribute
             attribute: fast-search
+            index: enable-bm25
         }
         field category type string {
             indexing: summary | attribute
@@ -26,6 +31,26 @@ schema episodes {
     }
 
     fieldset default {
-        fields: title, description, people
+        fields: title, description, series
+    }
+    
+    # See https://docs.vespa.ai/en/embedding.html#embedding-a-document-field
+    # and https://docs.vespa.ai/en/approximate-nn-hnsw.html
+    field embedding type tensor<float>(x[384]) {
+        indexing: input description | embed bert | attribute | index
+        attribute {
+            distance-metric: angular
+        }
+    }
+
+    # See https://docs.vespa.ai/en/ranking.html
+    rank-profile default inherits default {
+        inputs {
+            query(e) tensor<float>(x[384])
+        }
+        first-phase {
+            # expression: bm25(description) + closeness(field, embedding)
+            expression: bm25(description) + bm25(title) * 0.5 + bm25(series) * 2 + closeness(field, embedding)
+        }
     }
 }

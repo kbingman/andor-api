@@ -3,14 +3,14 @@ use vespa::document::VespaDocument;
 
 use crate::{
     episode::Episode,
-    fetch::fetch,
+    fetch::{self, fetch},
     vespa::{Presentation, SearchQuery},
 };
 
 /// A generic Adapter for the Vespa search endpoint
 /// returns a Vespa document
 pub trait SearchAdapter<Model> {
-    fn search(&self, query: &str) -> Result<Option<VespaDocument<Model>>>;
+    fn query(&self, query: &str) -> Result<Option<VespaDocument<Model>>>;
 }
 
 pub struct VespaDb {
@@ -23,32 +23,30 @@ impl VespaDb {
     }
 }
 
-/// A simple function to format Vespa search queries
-/// This is directly tied to how the search model works
-fn format_search_query(query: String, offset: u32) -> SearchQuery {
-    SearchQuery {
-        yql: "select * from episodes where userQuery()".to_string(),
-        query,
-        offset,
-        query_type: "weakAnd".to_string(),
-        presentation: Presentation {
-            bolding: true,
-            format: "json".to_string(),
-        },
-    }
-}
-
 impl SearchAdapter<Episode> for VespaDb {
-    fn search(&self, query: &str) -> Result<Option<VespaDocument<Episode>>> {
+    // Performs a search using 
+    fn query(&self, query: &str) -> Result<Option<VespaDocument<Episode>>> {
         let uri = format!("{}/search/", &self.uri);
-        let offset = 0;
-        let search_query = format_search_query(query.to_string(), offset);
+        let search_query = SearchQuery {
+            yql: "select * from episodes where {targetHits: 100}nearestNeighbor(embedding, e) AND userQuery()".to_string(),
+            query: Some(query.to_string()),
+            input: Some(format!("embed({})", query)),
+            hits: 30,
+            offset: 0,
+            query_type: "weakAnd".to_string(),
+            presentation: Presentation {
+                bolding: true,
+                format: "json".to_string(),
+            },
+        };
 
         let res = fetch(
             &uri,
             http::Method::POST,
             Some(serde_json::to_vec(&search_query)?.into()),
         )?;
+        
+        // let res = fetch::post(&uri, &search_query)?;
 
         Ok(match res.body() {
             Some(body) => {
