@@ -3,6 +3,7 @@
   "fields": {
     "episode_id": 5,
     "season": 1,
+    "year": 2022,
     "series": "Andor",
     "category": "Science Fiction",
     "title": "The Axe Forgets",
