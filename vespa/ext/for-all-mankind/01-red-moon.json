@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::red-moon",
+  "fields": {
+    "episode_id": 1,
+    "season": 1,
+    "series": "For All Mankind",
+    "category": "Drama",
+    "title": "Red Moon",
+    "description": "Soviet cosmonaut Alexei Leonov becomes the first man on the moon in June 1969, causing a rush at NASA for an American Moon landing. While blowing off steam at a bar with friends after the landing, Apollo 10 astronaut Edward Baldwin admits to a reporter, while drunk, that he thinks NASA could have done more to put an American on the Moon first. Baldwin is reassigned by NASA director Wernher Von Braun from flight duty after his comments become public. A month later, after tensions have risen, Apollo 11 crash-lands on the Moon and loses contact with NASA, but after more than four hours, Armstrong and Aldrin reestablish contact and announce that they have survived the crash, although their lunar module is tilted in a precarious attitude. After the successful landing, Baldwin hopes to be reestablished as an astronaut on Apollo 15 and Gordo's family also watches the launch at a party. Meanwhile, a Mexican family listening to the launch over a radio illegally crosses the border into the United States.",
+    "people": ""
+  }
+}

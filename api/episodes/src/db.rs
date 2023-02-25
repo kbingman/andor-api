@@ -1,8 +1,8 @@
-use anyhow::{Result, Context};
-use spin_sdk::pg::{self, ParameterValue};
+use anyhow::{Context, Result};
 use db_adapter::DbAdapter;
+use spin_sdk::pg::{self, ParameterValue};
 
-use crate::models::{as_episode, aggregate_episodes, Episode};
+use crate::models::{aggregate_episodes, as_episode, Episode};
 
 pub struct EpisodeDb {
     uri: String,
@@ -10,12 +10,12 @@ pub struct EpisodeDb {
 
 impl EpisodeDb {
     pub fn new(uri: String) -> Self {
-        EpisodeDb { uri }
+        Self { uri }
     }
 }
 
 impl DbAdapter<Episode> for EpisodeDb {
-    /// Insert 
+    /// Insert
     fn insert(&self, model: &Episode) -> Result<Option<Episode>> {
         let sql = "
             INSERT INTO 
@@ -36,7 +36,7 @@ impl DbAdapter<Episode> for EpisodeDb {
         })
     }
 
-    /// Find All 
+    /// Find All
     fn find_all(&self) -> Result<Vec<Episode>> {
         let sql = "
             SELECT 
@@ -50,10 +50,10 @@ impl DbAdapter<Episode> for EpisodeDb {
         ";
         let rowset = pg::query(&self.uri, sql, &[])?;
 
-        Ok(aggregate_episodes(rowset)?)
+        aggregate_episodes(rowset)
     }
 
-    /// Find One 
+    /// Find One
     fn find_one(&self, id: i32) -> Result<Option<Episode>> {
         let sql = "
             SELECT 
@@ -70,13 +70,10 @@ impl DbAdapter<Episode> for EpisodeDb {
         let rowset = pg::query(&self.uri, sql, &params)?;
         let results = aggregate_episodes(rowset)?;
 
-        Ok(match results.first() {
-            Some(episode) => Some(episode.to_owned()),
-            _ => None,
-        })
+        Ok(results.first().map(|episode| episode.to_owned()))
     }
 
-    /// Update 
+    /// Update
     fn update(&self, id: i32, model: &Episode) -> Result<Option<Episode>> {
         let sql = "
             UPDATE 
@@ -100,19 +97,21 @@ impl DbAdapter<Episode> for EpisodeDb {
     }
 
     /// Deletes the primary record and the associated join
-    /// table rows. 
-    fn delete(&self, id: i32) -> Result<u64> {        
+    /// table rows.
+    fn delete(&self, id: i32) -> Result<u64> {
         let result = pg::execute(
             &self.uri,
             "DELETE FROM episodes WHERE id=$1",
             &[ParameterValue::Int32(id)],
-        ).context("Error removing episodes.")?;
-        
+        )
+        .context("Error removing episodes.")?;
+
         pg::execute(
             &self.uri,
             "DELETE FROM people_episodes WHERE episode_id=$1",
             &[ParameterValue::Int32(id)],
-        ).context("Error removing join table data for episodes and people")?;
+        )
+        .context("Error removing join table data for episodes and people")?;
 
         Ok(result)
     }

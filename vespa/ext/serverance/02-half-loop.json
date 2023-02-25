@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::half-loop",
+  "fields": {
+    "episode_id": 2,
+    "season": 1,
+    "series": "Severance",
+    "category": "Drama",
+    "title": "Half Loop",
+    "description": "The previous day, Helly undergoes the severance procedure as a new employee, implanting a microchip inside her brain. At the office, the severed Helly is introduced to her new coworkers, Dylan and Irving, and is instructed that her job is to sort encrypted numbers into digital bins as part of \"macrodata refinement\". During a welcome party headed by floor manager Milchick, Helly becomes uncomfortable and attempts to escape by writing her outside self (or \"outie\") a note of resignation, but the elevator shuts down. Mark claims this is due to Lumon's built-in \"code detectors\" which prevent unauthorized communication between selves. Mark claims responsibility and is put into the \"break room\" as punishment. Later, Irving hallucinates a black liquid covering his desk and is administered a \"wellness check\", where counselor Ms. Casey recites various facts about Irving's outie, with Irving forced to react neutrally. At the wellness center, Irving also meets Burt, the head of the two-person Optics and Design department. Outside, Mark once again meets with Petey, who explains that he has \"reintegration sickness\" from reversing his severance. Petey tells Mark of the break room and plays a recording of himself repeatedly reading out a stringent apology, with Milchick forcing him to repeat the lines. Mark gives Petey shelter in his house. As he is taking a shower, Petey suffers hallucinations and collapses.",
+    "people": ""
+  }
+}

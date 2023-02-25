@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::fiasco",
+  "fields": {
+    "episode_id": 5,
+    "season": 1,
+    "series": "Slow Horses",
+    "category": "Drama",
+    "title": "Fiasco",
+    "description": "The rest of the team reconvene, and River recalls he took a photo of Taverner covertly meeting with Alan Black whilst carrying out surveillance training. Lamb \"returns\" Duffy's car to Regent's Park Headquarters and demands to speak with Taverner. She offers him a way out that will result in him being fired but not charged, but also threatens Standish and tells him Sid has died in hospital. Lamb informs her there is a bomb in the car he returned, which allows Cartwright to sneak in whilst Duffy's security team investigates. He confronts Webb, alleging Taverner had him purposefully feed him incorrect intel during the Stansted exercise so he would fail and be demoted, as he had the photograph of her meeting with Black. After locating the photo and evading security, he and Lamb threaten to reveal Taverner's operation to the Director-General and the press. Standish and Ho are able to identify the van being used by the Sons of Albion, as it is linked to a previous cover identity used by Black, and begin to track it. Running out of petrol, Curly announces he still plans to behead Ahmed and die resisting arrest, but Zeppo takes over after pulling a handgun he secretly took from Black's corpse. Hassan tells the group his uncle can offer them money for his safe return. However, after refuelling, Curly is able to disarm and execute Zeppo, regaining control.",
+    "people": ""
+  }
+}

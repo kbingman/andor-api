@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::into-the-abyss",
+  "fields": {
+    "episode_id": 5,
+    "season": 1,
+    "series": "For All Mankind",
+    "category": "Drama",
+    "title": "Into the Abyss",
+    "description": "The crew of Apollo 15 take a significant risk, changing their landing site to be near Shackleton crater, a promising location for finding water that would be essential to any lunar colonization effort. After two days of venturing out onto the surface with no results, Molly volunteers to rappel down into the crater. She finds ice, and they return home triumphant. Danielle's husband returns from fighting in Vietnam, and they have an argument with Gordo Stevens, ending with Danielle warning Gordo to stay away. After initially tense interactions, Karen and Molly's husband Wayne reveal their fears to each other. The episode ends with the Jamestown landing two years later on October 12, 1973, to become NASA's first Moon base.",
+    "people": ""
+  }
+}

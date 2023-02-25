@@ -1,0 +1,13 @@
+{
+  "put": "id:tv:episodes::announcement",
+  "fields": {
+    "episode_id": 7,
+    "season": 1,
+    "series": "Andor",
+    "year": 2022,
+    "category": "Science Fiction",
+    "title": "Announcement",
+    "description": "On Coruscant, Karn starts a new job at the Bureau of Standards. Colonel Yularen announces that the ISB has gained more surveillance and punitive authority, while Meero is challenged by Blevin for breaking protocol by accessing Imperial data without authorization. She persuades her superiors of her work's value and is assigned oversight of Ferrix. Luthen's assistant Kleya instructs Vel to find and kill Cassian, as he knows Luthen's identity. Mon Mothma meets with Tay Kolma, an old friend and banker, and asks him to help her access family funds. Cassian returns to Ferrix to settle old debts and learns that people blame him for the Corporate Security crackdown. The presence of stormtroopers on Ferrix reminds Cassian of how his adoptive father, Clem, was murdered by Imperial clone troopers during a protest on Rix Road. Cassian attempts to get Maarva to leave Ferrix with him, but she decides to stay and oppose the increased Imperial presence. Cassian travels to the tropical tourist paradise of Niamos, adopting the name \"Keef Girgo\". Some time later, while walking towards a local store, he is unjustly arrested by a Shoretrooper and sentenced to six years of imprisonment.",
+    "people": "Cassian Andor, Syril Karn, Maarva Andor, Luthen Rael, Dedra Meero, Mon Mothma, Vel Sartha, Cinta Kaz, Kleya Marki, Clem Andor, Tay Kolma"
+  }
+}

@@ -16,7 +16,7 @@ impl PeopleDb {
 }
 
 impl DbAdapter<Person> for PeopleDb {
-    /// Insert 
+    /// Insert
     fn insert(&self, model: &Person) -> Result<Option<Person>> {
         let sql = "
             INSERT INTO 
@@ -37,17 +37,18 @@ impl DbAdapter<Person> for PeopleDb {
 
                 Some(Person {
                     episode_ids,
-                    ..person.to_owned()
+                    ..person
                 })
             }
             _ => None,
         })
     }
-    
-    /// Find All 
+
+    /// Find All
     fn find_all(&self) -> Result<Vec<Person>> {
         // let clause = "WHERE people.id in ($1, $2)";
-        let sql = format!("
+        let sql = format!(
+            "
             SELECT 
                 people.id, 
                 people.name, 
@@ -56,13 +57,15 @@ impl DbAdapter<Person> for PeopleDb {
             FROM people
             LEFT JOIN people_episodes on (people.id = people_episodes.person_id)
             {}
-        ", "");
+        ",
+            ""
+        );
         let rowset = pg::query(&self.uri, &sql, &[])?;
 
-        Ok(aggregate_people(rowset)?)
+        aggregate_people(rowset)
     }
 
-    /// Find one 
+    /// Find one
     fn find_one(&self, id: i32) -> Result<Option<Person>> {
         let sql = "
             SELECT 
@@ -77,13 +80,10 @@ impl DbAdapter<Person> for PeopleDb {
         let rowset = pg::query(&self.uri, sql, &[ParameterValue::Int32(id)])?;
         let results = aggregate_people(rowset)?;
 
-        Ok(match results.first() {
-            Some(person) => Some(person.to_owned()),
-            _ => None,
-        })
+        Ok(results.first().map(|person| person.to_owned()))
     }
 
-    /// Update 
+    /// Update
     fn update(&self, id: i32, model: &Person) -> Result<Option<Person>> {
         let sql = "
             UPDATE 
@@ -108,9 +108,9 @@ impl DbAdapter<Person> for PeopleDb {
 
                 Some(Person {
                     episode_ids,
-                    ..person.to_owned()
+                    ..person
                 })
-            },
+            }
             _ => None,
         })
     }
@@ -123,7 +123,7 @@ impl DbAdapter<Person> for PeopleDb {
             &[ParameterValue::Int32(id)],
         )?;
         println!("result {:#?}", result);
-        
+
         let result2 = pg::execute(
             &self.uri,
             "DELETE FROM people_episodes WHERE person_id=$1",

@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::pathfinder",
+  "fields": {
+    "episode_id": 14,
+    "season": 2,
+    "series": "For All Mankind",
+    "category": "Drama",
+    "title": "Pathfinder",
+    "description": "",
+    "people": "Ed appoints himself to Mission Commander for the next generation nuclear-powered Space Shuttle Pathfinder, after Karen encouraged him to go back to space now that Kelly is going to Annapolis. Ed asks Molly Cobb to assume his position as Chief of the Astronaut Office, and she accepts. Danielle Poole visits her in-laws after Clayton's suicide. They argue, and Danielle realizes that she is missing out on opportunities as a token hire. She confronts Ed on his last day demanding Mission Commander status. Shortly afterwards, Ed is called into his final meeting, where he announces Danielle will be commanding the Apollo–Soyuz rendezvous mission. Gordo experiences anxiety about his upcoming mission, and has a panic attack when a helmet is sealed on his spacesuit during fitting. Ed reassures him that he is ready for the mission in a terse conversation prior to both astronauts flying to Cape Canaveral. During the flight, Ed challenges Gordo to a dogfight. After risky maneuvers, Ed's aircraft experiences an engine fire, and he ejects into the Gulf of Mexico."
+  }
+}

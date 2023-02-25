@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::the-weight",
+  "fields": {
+    "episode_id": 15,
+    "season": 2,
+    "series": "For All Mankind",
+    "category": "Drama",
+    "title": "The Weight",
+    "description": "After Karen's initial distress regarding Ed's accident, she avoids discussion of it once he returns home safely. Ed and Gordo are given a stern warning by Molly despite Margo and NASA Administrator Thomas Paine's plea for a harsher punishment. After an awkward reception at the Jamestown base, Tracy is introduced to the resident illegal distiller of ethanol during a tour. Just one month into her six-month mission, vent noise, cigarette cravings, and the monotony drive Tracy to smoke in the old airlock and take up drinking. The blocked vent causes a base-wide CO2 alert. Tracy is almost sent home but is given a second chance on the condition that her special treatment ends and she is given double shifts. Molly starts having trouble with her vision. Aleida is given a condescending welcome to NASA as a rookie engineer on the Apollo-Soyuz project. Ellen visits a poetry reading of Pam's and, despite being surprised by Pam's new girlfriend, agrees to meet for drinks at the Outpost. This leads to them having sex. Gordo battles to overcome his claustrophobia and poor fitness. A mission launches to Jamestown with firearms.",
+    "people": ""
+  }
+}

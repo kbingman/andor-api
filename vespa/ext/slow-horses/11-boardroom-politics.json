@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::boardroom-politics",
+  "fields": {
+    "episode_id": 11,
+    "season": 2,
+    "series": "Slow Horses",
+    "category": "Drama",
+    "title": "Boardroom Politics",
+    "description": "Alex takes off in the plane, and Katinsky tells River they plan to fly it into The Glasshouse skyscraper before leaving. Duncan and Kelly find and untie River, and he is eventually able to convince them of Alex's true identity. River calls in a \"Code September\", prompting Taverner to evacuate Judd from his speech at The Royal Exchange and the immediate area around The Glasshouse. Lamb blackmails Nick Duffy to get him into the records department at Regents Park. He deduces Katinsky is the spymaster behind the Cicada program (passing himself off as a junior bureaucrat when defecting to avoid suspicion) and was the handler of a traitor in the service. Standish beats Krymov in a game of chess, and he reveals it was Katinsky, not Pashkin he met with to set up the Webb meeting. Katinsky specifically requested Lamb's team to be involved. The meeting between Paskhin and Webb at The Glasshouse proceeds as planned. However, a security alarm activates and Pashkin pulls a gun. Louisa explains to Webb that Pashkin is likely FSB and killed Nevsky. Pashkin shoots Webb and escapes with Piotr, locking the agents inside. Longridge shoots Kyril with a pistol he hid in the conference room. Ho and Dander trace Chernitsky to a train station in central London and pursue him as the evacuations take place.",
+    "people": ""
+  }
+}

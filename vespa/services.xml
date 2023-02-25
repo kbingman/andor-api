@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<services version="1.0" xmlns:deploy="vespa" xmlns:preprocess="properties">
+
+    <container id="default" version="1.0">
+        <!-- See https://docs.vespa.ai/en/embedding.html#bertbase-embedder -->
+        <component id="bert" class="ai.vespa.embedding.BertBaseEmbedder" bundle="model-integration">
+            <config name="embedding.bert-base-embedder">
+                <transformerModel path="model/minilm-l6-v2.onnx"/>
+                <tokenizerVocab path="model/bert-base-uncased.txt"/>
+            </config>
+        </component>
+        
+        <search/>
+        <document-api/>
+        <nodes>
+            <node hostalias="node1" />
+        </nodes>
+    </container>
+
+    <content id="episodes" version="1.0">
+        <redundancy>1</redundancy>
+        <documents>
+            <document type="episodes" mode="index" />
+            <document type="people" mode="index" />
+        </documents>
+        <nodes>
+            <node hostalias="node1" distribution-key="0" />
+        </nodes>
+    </content>
+
+</services>

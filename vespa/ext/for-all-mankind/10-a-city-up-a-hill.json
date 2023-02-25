@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::a-city-upon-a-hill",
+  "fields": {
+    "episode_id": 10,
+    "season": 1,
+    "series": "For All Mankind",
+    "category": "Drama",
+    "title": "A City upon a Hill",
+    "description": "Aleida asks to live with Margo, but Margo refuses. Meanwhile in space, Apollo 24's S-IVB burns to depletion, sending the spacecraft way off course. Ed interrogates the cosmonaut, who is still alive but is now his captive. NASA attempts to regain contact with Apollo 24. Ellen wakes up and tends to Deke, who has suffered a puncture wound. They perform a burn using the service module engine to correct their course, but their fuel supplies are depleted before the course correction is complete. Ed launches the LSAM with help from the cosmonaut to perform a rescue of Apollo 24 and capture the spacecraft into lunar orbit. Unfortunately, the spacecraft is tumbling, making it nearly impossible for Ed to dock. Instead of docking, Ellen suggests Ed throw the fuel capsule to Apollo 24. The capsule soars too high above the craft but Ellen lunges toward it, capturing it. Deke dies from his injuries as the rescue mission is completed. In a post-credits scene in 1983, Ed and Karen discuss live coverage from the South Pacific Ocean showing the launch of a Sea Dragon rocket carrying a plutonium payload for expansion of the Jamestown colony.",
+    "people": ""
+  }
+}

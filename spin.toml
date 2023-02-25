@@ -47,3 +47,13 @@ postgres_uri = "postgres://postgres:postgres@127.0.0.1/postgres"
 command = "cargo build --target wasm32-wasi --release"
 workdir = "api/episodes"
 
+[[component]]
+id = "search-api"
+source = "target/wasm32-wasi/release/search_api.wasm"
+allowed_http_hosts = ["http://localhost:8080"]
+[component.trigger]
+route = "/api/search"
+[component.build]
+command = "cargo build --target wasm32-wasi --release"
+workdir = "api/search"
+

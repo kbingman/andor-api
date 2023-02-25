@@ -1,8 +1,8 @@
 use anyhow::Result;
 use spin_sdk::http::Response;
 
-use rest_api::handlers::{bad_request, internal_server_error, not_found, ok};
 use db_adapter::DbAdapter;
+use rest_api::handlers::{bad_request, internal_server_error, not_found, ok};
 
 use crate::models::Episode;
 

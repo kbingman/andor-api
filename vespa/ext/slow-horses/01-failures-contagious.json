@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::failures-contagious",
+  "fields": {
+    "episode_id": 1,
+    "season": 1,
+    "series": "Slow Horses",
+    "category": "Drama",
+    "title": "Failure's Contagious",
+    "description": "After making a serious mistake during a live training exercise at Stansted Airport, MI5 agent River Cartwright is demoted to dead end work at Slough House in lieu of being fired. He is assigned by his superior Jackson Lamb to carry out surveillance on Robert Hobden, a journalist associated with far-right politicians Peter Judd MP and Roger Simmonds. His colleague Sidonie 'Sid' Baker has also been assigned to Hobden, discreetly copying the contents of his USB flash drive in a cafe. River is then instructed to deliver it to the service's Regent's Park Headquarters, much to his surprise.",
+    "people": ""
+  }
+}

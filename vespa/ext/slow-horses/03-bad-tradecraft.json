@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::bad-tradecraft",
+  "fields": {
+    "episode_id": 3,
+    "season": 1,
+    "series": "Slow Horses",
+    "category": "Drama",
+    "title": "Bad Tradecraft",
+    "description": "Sid, alive but in critical condition, is taken to hospital by MI5 security operatives who detain Cartwright. Lamb breaks him out, and the two deduce Moody was the gunman sent to kill Hobden. Moody returns to Slough House and attacks Min and Louisa when they re-enter, but is killed when he breaks his neck falling down the stairs in a scuffle. Lamb theorises that Slough House is going to be blamed for whatever operation Regent's Park is running and be disavowed if it fails. Taverner meets with Lamb and reveals Ahmed is the nephew of the second in command of Pakistani Military Intelligence. His kidnapping and intended rescue is an unsanctioned false flag operation masterminded by herself to potentially increase cooperation with Pakistan as well as neutralise and intimidate the far-right. She claims to have an operative embedded with the Sons of Albion who organised the kidnapping, but will also facilitate the rescue. It is also revealed that Standish narrowly escaped a treason charge through her links with Partner and his death. Hobden meets with Peter Judd MP and tries to convince him to go public with the information that Hassan's kidnapping is a setup, but is rebuked. Curly is seen making a series of discreet calls with a burner phone, implying he is Taverner's mole. Hassan tries, but fails, to escape and is threatened by Moe. Giving him a chance to save face, Taverner offers Lamb's team the opportunity to signal to her man the raid is about to commence, allowing him to escape with Hassan. He, Cartwright, Min and Louisa arrive at the property, but upon entry discover it empty aside from Moe's beheaded corpse.",
+    "people": ""
+  }
+}

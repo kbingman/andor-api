@@ -1,0 +1,13 @@
+{
+  "put": "id:tv:episodes::nobody-is-listening",
+  "fields": {
+    "episode_id": 9,
+    "season": 1,
+    "series": "Andor",
+    "year": 2022,
+    "category": "Science Fiction",
+    "title": "Nobody Is Listening",
+    "description": "Dedra Meero and an Imperial scientist named Dr. Gorst torture Bix for information and realize that Cassian may have been involved in the Aldhani attack. They fail to learn anything from Bix about Luthen. The ISB capture a Rebel pilot from Kreegyr's group, who reveals that a power station on Spellhaus is set to be raided. Mon Mothma reunites with Vel, revealed as her cousin, and encourages her to keep a low profile while maintaining the facade of a rich and politically uninvolved young woman. Mon and Tay Kolma continue working to covertly gather funds for rebel activities. Meanwhile, an older member of Cassian's prison work crew named Ulaf is euthanized by a prison medic named Dr. Rhasiv when he suffers a stroke and can no longer work effectively. Dr. Rhasiv confirms to Cassian and floor manager Kino Loy a disturbing rumor: A prisoner who had completed his sentence was sent to work on a different level instead of being released, forcing the prison to kill all the prisoners on that level to cover up the mistake. Cassian and Kino realize that the prison may never let them go, convincing Kino to join Cassian's scheme to escape.",
+    "people": "Cassian Andor, Bix Caleen, Luthen Rael, Dedra Meero, Mon Mothma, Tay Kolma, Kino Loy, Ruescott Melshi, Ulaf, Ham, Jemboc, Taga, Xaul, Birnok, Zinska"
+  }
+}

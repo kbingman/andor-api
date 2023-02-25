@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::dont-be-cruel",
+  "fields": {
+    "episode_id": 17,
+    "season": 2,
+    "series": "For All Mankind",
+    "category": "Drama",
+    "title": "Don't Be Cruel",
+    "description": "Tensions rise between the US and Soviet Union. Before boarding a flight to Korea with Thomas Paine, Ellen gets a call from the bar saying her father has had a heart attack. She rushes to the hospital but he is already in recovery. She tells him that she's thinking of leaving NASA and joining the family's business when she gets a call from the White House about a downed jetliner. The flight was revealed to be Korean Air Lines Flight 007, that was fired upon by a Soviet jet and destroyed, killing Paine and 268 other people. In the wake of this accident about which the Soviets reveal little information, Ellen is appointed acting director of NASA. Margo warns Sergei of faulty technology used by the Soviets via a coded message. Kelly investigates her birth parents, and Karen sells the Outpost to Tracy's new husband before kissing Danny and coming home to make love with Ed. While on the Moon, Tracy and the others take back their mining site.",
+    "people": ""
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "put": "id:tv:episodes::the-axe-forgets",
+  "fields": {
+    "episode_id": 5,
+    "season": 1,
+    "year": 2022,
+    "series": "Andor",
+    "category": "Science Fiction",
+    "title": "The Axe Forgets",
+    "description": "On Aldhani, \"Clem\" hides his past from his fellow rebels and is met with distrust from most of them, particularly Skeen. Taramyn trains Cassian and the other rebels for the planned heist. While traveling to the Aldhani Imperial garrison, Cassian reveals that he is a mercenary. Vel decides to continue with the mission and hold off on dealing with \"Clem\"'s past until they have achieved their objectives. Imperial officer and double agent Lieutenant Gorn covertly aids the rebels. On Coruscant, Eedy Karn emasculates her son Syril as he explores new career prospects. Mon Mothma establishes a new charitable foundation while managing increasingly tense relations with her husband and daughter. ISB supervisor Blevin acquires a hotel as the new ISB headquarters on Ferrix. Meanwhile, his rival Meero and her assistant Heert reach the conclusion that the rebels are conducting a series of coordinated heists of Imperial weapons and technology. Luthen anxiously waits for a transmission from Cassian's rebel team.",
+    "people": "Cassian Andor, Syril Karn, Luthen Rael, Dedra Meero, Mon Mothma, Vel Sartha, Cinta Kaz, Kleya Marki, Eedy Karn, Karis Nemik, Lieutenant Gorn, Arvel Skeen, Taramyn Barcona"
+  }
+}

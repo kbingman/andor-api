@@ -1,0 +1,12 @@
+{
+  "put": "id:tv:episodes::every-little-thing",
+  "fields": {
+    "episode_id": 11,
+    "season": 2,
+    "series": "For All Mankind",
+    "category": "Drama",
+    "title": "Every Little Thing",
+    "description": "Almost a decade later, in 1983 Jamestown has expanded to accommodate more astronauts and equipment. Ronald Reagan is president, having won the 1976 presidential election and been re-elected in 1980. Ed is Chief of the Astronaut Office, Karen runs the Outpost and they have adopted a daughter, Kelly, who works with Karen. At Jamestown, Ellen looks forward to handing over the reins and returning home. On the ground, Tracy announces her marriage to financier Sam Cleveland on The Tonight Show, blindsiding her ex-husband Gordo. At NASA, a huge solar flare and a fast-moving solar storm cause problems on Earth, on Skylab and at Jamestown. Without the protective shielding of the Earth's magnetic field and Earth's atmosphere, astronauts are forced to shelter and wait it out. While most make it to safety, Molly and colleague Wubbo Ockels are still on the lunar surface. Molly finds shelter in a lava tube but sees Wubbo has crashed his rover nearby. She leaves the safety of the tube to rescue him as the solar storm hits the Moon, leaving her radiation wristband behind in the process. She returns to the lava tube with Wubbo who is alive but has sustained a large dose of radiation.",
+    "people": ""
+  }
+}

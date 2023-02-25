@@ -2,6 +2,5 @@
 
 members = [
     "api/*",
-    "cli",
     "crates/*",
 ]
