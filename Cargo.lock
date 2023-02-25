@@ -240,7 +240,7 @@ dependencies = [
  "rest_api",
  "serde",
  "serde_json",
- "spin-sdk 0.7.1",
+ "spin-sdk 0.9.0",
  "wit-bindgen-rust",
 ]
 
@@ -767,7 +767,7 @@ dependencies = [
  "bytes",
  "http",
  "rest_api",
- "spin-sdk 0.7.1",
+ "spin-sdk 0.9.0",
  "wit-bindgen-rust",
 ]
 
@@ -872,7 +872,7 @@ dependencies = [
  "rest_api",
  "serde",
  "serde_json",
- "spin-sdk 0.7.1",
+ "spin-sdk 0.9.0",
  "wit-bindgen-rust",
 ]
 
@@ -1156,7 +1156,7 @@ dependencies = [
  "serde",
  "serde-querystring",
  "serde_json",
- "spin-sdk 0.8.0",
+ "spin-sdk 0.9.0",
  "vespa",
  "wit-bindgen-rust",
 ]
@@ -1298,7 +1298,7 @@ dependencies = [
 [[package]]
 name = "spin-macro"
 version = "0.1.0"
-source = "git+https://github.com/fermyon/spin?tag=v0.8.0#70862363b3d7213b48a69631273a743fe502f02a"
+source = "git+https://github.com/fermyon/spin?tag=v0.9.0#a99ed5130d46c541d5ae0020a09d0dec51be2b0a"
 dependencies = [
  "anyhow",
  "bytes",
@@ -1327,14 +1327,14 @@ dependencies = [
 
 [[package]]
 name = "spin-sdk"
-version = "0.8.0"
-source = "git+https://github.com/fermyon/spin?tag=v0.8.0#70862363b3d7213b48a69631273a743fe502f02a"
+version = "0.9.0"
+source = "git+https://github.com/fermyon/spin?tag=v0.9.0#a99ed5130d46c541d5ae0020a09d0dec51be2b0a"
 dependencies = [
  "anyhow",
  "bytes",
  "form_urlencoded",
  "http",
- "spin-macro 0.1.0 (git+https://github.com/fermyon/spin?tag=v0.8.0)",
+ "spin-macro 0.1.0 (git+https://github.com/fermyon/spin?tag=v0.9.0)",
  "thiserror",
  "wit-bindgen-rust",
 ]
@@ -1620,8 +1620,13 @@ checksum = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
 name = "vespa"
 version = "0.1.0"
 dependencies = [
+ "anyhow",
+ "bytes",
+ "http",
  "serde",
  "serde_json",
+ "spin-sdk 0.9.0",
+ "wit-bindgen-rust",
 ]
 
 [[package]]

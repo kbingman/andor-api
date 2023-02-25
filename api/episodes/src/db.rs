@@ -10,7 +10,7 @@ pub struct EpisodeDb {
 
 impl EpisodeDb {
     pub fn new(uri: String) -> Self {
-        EpisodeDb { uri }
+        Self { uri }
     }
 }
 

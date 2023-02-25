@@ -1,60 +1,64 @@
-use anyhow::Result;
-use vespa::document::VespaDocument;
+use std::collections::HashMap;
 
-use crate::{
-    episode::Episode,
-    fetch::{self, fetch},
-    vespa::{Presentation, SearchQuery},
+use anyhow::Result;
+use serde::Deserialize;
+use vespa::{
+    document::VespaDocument,
+    query::{Presentation, SearchQuery},
+    search::SearchAdapter,
 };
 
-/// A generic Adapter for the Vespa search endpoint
-/// returns a Vespa document
-pub trait SearchAdapter<Model> {
-    fn query(&self, query: &str) -> Result<Option<VespaDocument<Model>>>;
+pub struct EpisodeDb<Db: SearchAdapter> {
+    db: Db,
 }
 
-pub struct VespaDb {
-    uri: String,
-}
-
-impl VespaDb {
-    pub fn new(uri: String) -> Self {
-        VespaDb { uri }
+impl<Db: SearchAdapter> EpisodeDb<Db> {
+    pub fn new(uri: &str) -> Self {
+        let db = Db::new(uri.to_string());
+        Self { db }
     }
-}
 
-impl SearchAdapter<Episode> for VespaDb {
-    // Performs a search using 
-    fn query(&self, query: &str) -> Result<Option<VespaDocument<Episode>>> {
-        let uri = format!("{}/search/", &self.uri);
+    /// The actual query for finding Episodes, takes
+    /// a query, offset, and size arguments
+    pub fn query<T: for<'a> Deserialize<'a>>(
+        &self,
+        query: Option<String>,
+        offset: u32,
+        hits: u32,
+    ) -> Result<Option<VespaDocument<T>>> {
+        // The YQL query
+        let yql = "
+            select * from episodes where {targetHits: 100}nearestNeighbor(embedding, e) 
+            AND 
+            userQuery()
+        "
+        .to_string();
+    
+        // The input argument
+        let mut input = HashMap::new();
+        match &query {
+            Some(q) => {
+                input.insert("query(e)".to_string(), format!("embed({})", q));
+            }
+            None => {}
+        };
+    
+        // And the complete SearchQuery
         let search_query = SearchQuery {
-            yql: "select * from episodes where {targetHits: 100}nearestNeighbor(embedding, e) AND userQuery()".to_string(),
-            query: Some(query.to_string()),
-            input: Some(format!("embed({})", query)),
-            hits: 30,
-            offset: 0,
+            yql,
+            query,
+            input,
+            hits,
+            offset,
             query_type: "weakAnd".to_string(),
             presentation: Presentation {
                 bolding: true,
                 format: "json".to_string(),
             },
         };
-
-        let res = fetch(
-            &uri,
-            http::Method::POST,
-            Some(serde_json::to_vec(&search_query)?.into()),
-        )?;
         
-        // let res = fetch::post(&uri, &search_query)?;
+        let res = self.db.query(&search_query)?;
 
-        Ok(match res.body() {
-            Some(body) => {
-                let doc: VespaDocument<Episode> = serde_json::from_slice(body)?;
-
-                Some(doc)
-            }
-            None => None,
-        })
+        Ok(res)
     }
 }

@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Deserialize, Serialize, Debug)]
@@ -10,8 +12,8 @@ pub struct Presentation {
 pub struct SearchQuery {
     pub yql: String,
     pub query: Option<String>,
-    #[serde(rename = "input.query(e)")]
-    pub input: Option<String>,
+    // #[serde(rename = "input.query(e)")]
+    pub input: HashMap<String, String>,
     pub hits: u32,
     pub offset: u32,
     #[serde(rename = "type")]
