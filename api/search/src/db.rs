@@ -3,18 +3,20 @@ use std::collections::HashMap;
 use anyhow::Result;
 use serde::Deserialize;
 use vespa::{
-    document::VespaDocument,
+    adapter::SearchAdapter,
+    models::VespaDocument,
     query::{Presentation, SearchQuery},
-    search::SearchAdapter,
 };
 
 pub struct EpisodeDb<Db: SearchAdapter> {
     db: Db,
 }
 
+/// The Vespa DB Episode search
+///
 impl<Db: SearchAdapter> EpisodeDb<Db> {
-    pub fn new(uri: &str) -> Self {
-        let db = Db::new(uri.to_string());
+    pub fn new(db: Db) -> Self {
+        // let db = Db::new(uri);
         Self { db }
     }
 
@@ -33,7 +35,7 @@ impl<Db: SearchAdapter> EpisodeDb<Db> {
             userQuery()
         "
         .to_string();
-    
+
         // The input argument
         let mut input = HashMap::new();
         match &query {
@@ -42,7 +44,7 @@ impl<Db: SearchAdapter> EpisodeDb<Db> {
             }
             None => {}
         };
-    
+
         // And the complete SearchQuery
         let search_query = SearchQuery {
             yql,
@@ -56,7 +58,7 @@ impl<Db: SearchAdapter> EpisodeDb<Db> {
                 format: "json".to_string(),
             },
         };
-        
+
         let res = self.db.query(&search_query)?;
 
         Ok(res)

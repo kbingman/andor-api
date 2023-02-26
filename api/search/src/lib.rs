@@ -8,7 +8,7 @@ use db::EpisodeDb;
 use query::get_query;
 use response::{as_empty_response, as_response};
 use rest_api::handlers::ok;
-use vespa::search::Vespa;
+use vespa::{adapter::SearchAdapter, vespa::Vespa};
 
 use crate::episode::Episode;
 
@@ -21,8 +21,9 @@ mod response;
 #[http_component]
 fn vespa_api(req: Request) -> Result<Response> {
     let uri = "http://localhost:8080";
-    let store: EpisodeDb<Vespa> = EpisodeDb::new(uri);
-    
+    let db = Vespa::new(uri);
+    let store = EpisodeDb::new(db);
+
     let query = get_query(&req)?;
 
     // Get the response from the Vespa Document

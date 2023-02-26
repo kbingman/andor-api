@@ -33,3 +33,11 @@ pub struct VespaDocRoot<T> {
 pub struct VespaDocument<T> {
     pub root: VespaDocRoot<T>,
 }
+
+#[derive(Clone, Deserialize, Serialize, Debug)]
+#[serde(rename_all = "camelCase")]
+pub struct VespaResponse<T> {
+    pub path_id: String,
+    pub id: String,
+    fields: T,
+}
