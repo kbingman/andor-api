@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use vespa::document::VespaDocument;
+use vespa::models::VespaDocument;
 
 #[derive(Clone, Deserialize, Serialize, Debug)]
 #[serde(rename_all = "camelCase")]

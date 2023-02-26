@@ -1,4 +1,6 @@
-pub mod document;
-pub mod fetch;
+mod fetch;
+
+pub mod adapter;
+pub mod models;
 pub mod query;
-pub mod search;
+pub mod vespa;

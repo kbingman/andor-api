@@ -4,14 +4,20 @@ use serde::{Deserialize, Serialize};
 use spin_sdk::{http::Response, outbound_http::send_request};
 
 /// Converts a serializable struct into bytes, used for making
-/// http requests
-pub fn from_bytes<T: for<'a> Deserialize<'a>>(body: &Bytes) -> Result<T> {
-    Ok(serde_json::from_slice(body)?)
+pub(crate) fn from_body<T: for<'a> Deserialize<'a>>(res: &Response) -> Result<Option<T>> {
+    Ok(match res.body() {
+        Some(body) => {
+            let doc: T = serde_json::from_slice(body)?;
+
+            Some(doc)
+        }
+        None => None,
+    })
 }
 
 /// Converts a serializable struct into bytes, used for making
 /// http requests
-pub fn as_bytes<T: Serialize>(payload: &T) -> Result<Bytes> {
+pub(crate) fn as_bytes<T: Serialize>(payload: &T) -> Result<Bytes> {
     Ok(serde_json::to_vec(payload)?.into())
 }
 
@@ -19,7 +25,7 @@ pub fn as_bytes<T: Serialize>(payload: &T) -> Result<Bytes> {
 /// with a few application specific defaults.
 /// The `application/json` content-type is hardwired into
 /// this, which is required for Vespa requests
-pub fn fetch(uri: &str, method: http::Method, body: Option<Bytes>) -> Result<Response> {
+pub(crate) fn fetch(uri: &str, method: http::Method, body: Option<Bytes>) -> Result<Response> {
     let res = send_request(
         http::Request::builder()
             .method(method)
@@ -32,21 +38,21 @@ pub fn fetch(uri: &str, method: http::Method, body: Option<Bytes>) -> Result<Res
 }
 
 /// A wrapper around a GET request using the `fetch` method
-pub fn get(uri: &str) -> Result<Response> {
+pub(crate) fn get(uri: &str) -> Result<Response> {
     fetch(uri, http::Method::GET, None)
 }
 
 /// A wrapper around a POST request using the `fetch` method
-pub fn post<T: Serialize>(uri: &str, payload: &T) -> Result<Response> {
+pub(crate) fn post<T: Serialize>(uri: &str, payload: &T) -> Result<Response> {
     fetch(uri, http::Method::POST, Some(as_bytes(payload)?))
 }
 
 /// A wrapper around a PUT request using the `fetch` method
-pub fn put<T: Serialize>(uri: &str, payload: &T) -> Result<Response> {
+pub(crate) fn put<T: Serialize>(uri: &str, payload: &T) -> Result<Response> {
     fetch(uri, http::Method::PUT, Some(as_bytes(payload)?))
 }
 
 /// A wrapper around a DELETE request using the `fetch` method
-pub fn delete<T: Serialize>(uri: &str) -> Result<Response> {
+pub(crate) fn delete(uri: &str) -> Result<Response> {
     fetch(uri, http::Method::DELETE, None)
 }
