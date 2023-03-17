@@ -6,15 +6,6 @@ trigger = { type = "http", base = "/" }
 version = "0.1.0"
 
 [[component]]
-id = "not-found"
-source = "target/wasm32-wasi/release/not_found.wasm"
-[component.trigger]
-route = "/api/..."
-[component.build]
-command = "cargo build --target wasm32-wasi --release"
-workdir = "api/not-found"
-
-[[component]]
 id = "andor-vite"
 source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.1/spin_static_fs.wasm", digest = "sha256:650376c33a0756b1a52cad7ca670f1126391b79050df0321407da9c741d32375" }
 files = [{ source = "ui/vite/dist/", destination = "/" }]
@@ -52,8 +43,7 @@ id = "search-api"
 source = "target/wasm32-wasi/release/search_api.wasm"
 allowed_http_hosts = ["http://localhost:8080"]
 [component.trigger]
-route = "/api/search"
+route = "/api/..."
 [component.build]
 command = "cargo build --target wasm32-wasi --release"
 workdir = "api/search"
-

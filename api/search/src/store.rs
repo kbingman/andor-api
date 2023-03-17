@@ -8,15 +8,14 @@ use vespa::{
     query::{Presentation, SearchQuery},
 };
 
-pub struct EpisodeDb<Db: SearchAdapter> {
+pub struct EpisodeStore<Db: SearchAdapter> {
     db: Db,
 }
 
 /// The Vespa DB Episode search
 ///
-impl<Db: SearchAdapter> EpisodeDb<Db> {
+impl<Db: SearchAdapter> EpisodeStore<Db> {
     pub fn new(db: Db) -> Self {
-        // let db = Db::new(uri);
         Self { db }
     }
 
@@ -50,6 +49,34 @@ impl<Db: SearchAdapter> EpisodeDb<Db> {
             yql,
             query,
             input,
+            hits,
+            offset,
+            query_type: "weakAnd".to_string(),
+            presentation: Presentation {
+                bolding: true,
+                format: "json".to_string(),
+            },
+        };
+
+        let res = self.db.query(&search_query)?;
+
+        Ok(res)
+    }
+
+    /// Finds all episodes for a given series
+    pub fn find_all_episodes<T: for<'a> Deserialize<'a>>(
+        &self,
+        series: String,
+        offset: u32,
+        hits: u32,
+    ) -> Result<Option<VespaDocument<T>>> {
+        let search_query = SearchQuery {
+            yql: format!(
+                "select * from episodes where series contains \"{}\"",
+                series
+            ),
+            query: None,
+            input: HashMap::new(),
             hits,
             offset,
             query_type: "weakAnd".to_string(),
