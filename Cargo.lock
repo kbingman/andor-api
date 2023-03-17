@@ -240,7 +240,8 @@ dependencies = [
  "rest_api",
  "serde",
  "serde_json",
- "spin-sdk 0.9.0",
+ "spin-sdk 0.10.1",
+ "vespa",
  "wit-bindgen-rust",
 ]
 
@@ -760,18 +761,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "not-found"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "bytes",
- "http",
- "rest_api",
- "spin-sdk 0.9.0",
- "wit-bindgen-rust",
-]
-
-[[package]]
 name = "num_cpus"
 version = "1.15.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -872,7 +861,7 @@ dependencies = [
  "rest_api",
  "serde",
  "serde_json",
- "spin-sdk 0.9.0",
+ "spin-sdk 0.10.1",
  "wit-bindgen-rust",
 ]
 
@@ -1106,7 +1095,7 @@ dependencies = [
  "http",
  "serde",
  "serde_json",
- "spin-sdk 0.7.1",
+ "spin-sdk 0.10.1",
 ]
 
 [[package]]
@@ -1150,13 +1139,12 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "bytes",
- "db_adapter",
  "http",
  "rest_api",
  "serde",
  "serde-querystring",
  "serde_json",
- "spin-sdk 0.9.0",
+ "spin-sdk 0.10.1",
  "vespa",
  "wit-bindgen-rust",
 ]
@@ -1282,7 +1270,7 @@ dependencies = [
 [[package]]
 name = "spin-macro"
 version = "0.1.0"
-source = "git+https://github.com/fermyon/spin?tag=v0.7.1#6cf7447036b7c9238cfa6383cf769b4500e29a38"
+source = "git+https://github.com/fermyon/spin?tag=v0.10.1#769d0045e9878374640134d04a6a91e2d2d87164"
 dependencies = [
  "anyhow",
  "bytes",
@@ -1313,20 +1301,6 @@ dependencies = [
 
 [[package]]
 name = "spin-sdk"
-version = "0.7.1"
-source = "git+https://github.com/fermyon/spin?tag=v0.7.1#6cf7447036b7c9238cfa6383cf769b4500e29a38"
-dependencies = [
- "anyhow",
- "bytes",
- "form_urlencoded",
- "http",
- "spin-macro 0.1.0 (git+https://github.com/fermyon/spin?tag=v0.7.1)",
- "thiserror",
- "wit-bindgen-rust",
-]
-
-[[package]]
-name = "spin-sdk"
 version = "0.9.0"
 source = "git+https://github.com/fermyon/spin?tag=v0.9.0#a99ed5130d46c541d5ae0020a09d0dec51be2b0a"
 dependencies = [
@@ -1335,6 +1309,20 @@ dependencies = [
  "form_urlencoded",
  "http",
  "spin-macro 0.1.0 (git+https://github.com/fermyon/spin?tag=v0.9.0)",
+ "thiserror",
+ "wit-bindgen-rust",
+]
+
+[[package]]
+name = "spin-sdk"
+version = "0.10.1"
+source = "git+https://github.com/fermyon/spin?tag=v0.10.1#769d0045e9878374640134d04a6a91e2d2d87164"
+dependencies = [
+ "anyhow",
+ "bytes",
+ "form_urlencoded",
+ "http",
+ "spin-macro 0.1.0 (git+https://github.com/fermyon/spin?tag=v0.10.1)",
  "thiserror",
  "wit-bindgen-rust",
 ]

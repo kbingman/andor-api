@@ -17,3 +17,11 @@ services:
     ports:
       - "8080:8080"
       - "19071:19071"
+    volumes:
+      - vespa:/opt/vespa/var
+      - vespa:/opt/vespa/logs
+volumes:
+  db:
+    driver: local
+  vespa:
+    driver: local

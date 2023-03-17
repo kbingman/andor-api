@@ -4,11 +4,6 @@ use anyhow::Result;
 use serde::{Deserialize, Serialize};
 use spin_sdk::pg::{Decode, Row, RowSet};
 
-// A trait generic over `T`.
-pub trait FromRow {
-    fn from_row(row: &Row) -> Result<Episode>;
-}
-
 #[derive(Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Episode {
